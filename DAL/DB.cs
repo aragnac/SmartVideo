@@ -58,5 +58,13 @@ namespace DAL
 
             return dataread;
         }
+
+        public SqlDataAdapter SelectWithId(String table, int id)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT "+table+".* FROM Film"+table+" INNER JOIN "+table+" ON Film"+table+".id_"+table.ToLower()+" = "+table+".id WHERE Film"+table+".id_film = "+id+";", conn);
+            SqlDataAdapter dataread = new SqlDataAdapter(cmd);
+
+            return dataread;
+        }
     }
 }

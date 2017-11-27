@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="547">
+        Title="MainWindow" Height="465" Width="568">
     <Grid>
         <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" Width="517">
             <MenuItem Header = "Options" >
@@ -30,9 +30,9 @@
 
         </Menu>
         <Label Content="Liste des films :" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DataGrid x:Name="ResultDataGrid" HorizontalAlignment="Left" Height="179" Margin="10,54,0,0" VerticalAlignment="Top" Width="497" GridLinesVisibility="Horizontal" FontFamily="Calibri Light" Background="#FF2E2A3C" Foreground="Black" IsReadOnly="True" SelectionChanged="ResultDataGrid_SelectionChanged"/>
-        <Button x:Name="nextButton" Content="Suivant" HorizontalAlignment="Left" Margin="432,251,0,0" VerticalAlignment="Top" Width="75" Click="nextButton_Click"/>
-        <Button x:Name="previousButton" Content="Précédent" HorizontalAlignment="Left" Margin="337,251,0,0" VerticalAlignment="Top" Width="75" Click="previousButton_Click"/>
+        <DataGrid x:Name="ResultDataGrid" HorizontalAlignment="Left" Height="303" Margin="10,54,0,0" VerticalAlignment="Top" Width="524" GridLinesVisibility="Horizontal" FontFamily="Calibri Light" Background="#FF2E2A3C" Foreground="Black" IsReadOnly="True" SelectionChanged="ResultDataGrid_SelectionChanged"/>
+        <Button x:Name="nextButton" Content="Suivant" HorizontalAlignment="Left" Margin="458,375,0,0" VerticalAlignment="Top" Width="75" Click="nextButton_Click"/>
+        <Button x:Name="previousButton" Content="Précédent" HorizontalAlignment="Left" Margin="363,375,0,0" VerticalAlignment="Top" Width="75" Click="previousButton_Click"/>
 
     </Grid>
 </Window>

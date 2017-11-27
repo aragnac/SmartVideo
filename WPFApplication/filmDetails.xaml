@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplication"
         mc:Ignorable="d"
-        Title="filmDetails" Height="300" Width="450">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="176" Margin="10,38,0,0" VerticalAlignment="Top" Width="135"/>
-        <Label Content="titreIci" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="135"/>
+        Title="filmDetails" Height="478.196" Width="583.083">
+    <Grid Margin="0,0,0,-1" HorizontalAlignment="Left" Width="573">
+        <Image x:Name="posterPicture" HorizontalAlignment="Left" Height="210" Margin="10,51,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label x:Name="titleLabel" Content="titreIci" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Acteurs :" HorizontalAlignment="Left" Margin="247,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Producteurs :" HorizontalAlignment="Left" Margin="247,213,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.563,1.904"/>
+        <DataGrid x:Name="actorsDataGrid" HorizontalAlignment="Left" Height="139" Margin="242,51,-108,0" VerticalAlignment="Top" Width="316"/>
+        <DataGrid x:Name="directorsDataGrid" HorizontalAlignment="Left" Height="139" Margin="242,244,-108,0" VerticalAlignment="Top" Width="316"/>
+        <Label Content="Genres:" HorizontalAlignment="Left" Margin="10,397,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.468,0.63"/>
 
     </Grid>
 </Window>

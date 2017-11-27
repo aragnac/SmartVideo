@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace WPFApplication
 {
@@ -44,7 +45,7 @@ namespace WPFApplication
 
             DataTable table = new DataTable("Films");
             DataRead.Fill(table);
-            table.Columns.Remove("posterpath");
+            //table.Columns.Remove("posterpath");
             ResultDataGrid.ItemsSource = table.DefaultView;
             
         }
@@ -64,6 +65,15 @@ namespace WPFApplication
 
         private void ResultDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+
+            if (ResultDataGrid.SelectedItem != null)
+            {
+                DataRowView row = (DataRowView)ResultDataGrid.SelectedItems[0];
+                int id = (int)row["id"];
+
+                filmDetails filmdetails = new filmDetails(id, con, (string)row["title"], (string)row["posterpath"]);
+                filmdetails.ShowDialog();
+            }
 
         }
     }
