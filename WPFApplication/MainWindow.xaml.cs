@@ -45,8 +45,8 @@ namespace WPFApplication
             DataTable table = new DataTable("Films");
             DataRead.Fill(table);
             table.Columns.Remove("posterpath");
-            table.Columns.Remove("id");
             ResultDataGrid.ItemsSource = table.DefaultView;
+            
         }
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
@@ -60,6 +60,11 @@ namespace WPFApplication
         {
             offset += 20;
             fillDataGrid();
+        }
+
+        private void ResultDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

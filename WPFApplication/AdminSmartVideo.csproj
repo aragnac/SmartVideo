@@ -58,6 +58,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="filmDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +72,9 @@
     </Compile>
     <Compile Include="ConnexionDB.xaml.cs">
       <DependentUpon>ConnexionDB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="filmDetails.xaml.cs">
+      <DependentUpon>filmDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
