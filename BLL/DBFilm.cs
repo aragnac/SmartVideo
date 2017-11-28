@@ -7,12 +7,12 @@ namespace BLL
     {
         DB dal;
 
-        /*public DBFilm()
+       /* public DBFilm()
         {
             dal = new DB();
         }
 
-        public SqlDataReader getFilm{
+        public SqlDataReader getFilm(){
             
             return dal.Select("Film");
         }*/
