@@ -71,7 +71,7 @@ namespace WPFApplication
                 DataRowView row = (DataRowView)ResultDataGrid.SelectedItems[0];
                 int id = (int)row["id"];
 
-                filmDetails filmdetails = new filmDetails(id, con, (string)row["title"], (string)row["posterpath"]);
+                filmDetails filmdetails = new filmDetails(id, con, (string)row["title"], (string)row["posterpath"], (string)row["trailerpath"]);
                 filmdetails.ShowDialog();
             }
 

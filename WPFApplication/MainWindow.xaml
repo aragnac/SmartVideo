@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplication"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="465" Width="568">
     <Grid>
         <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" Width="517">

@@ -19,6 +19,7 @@ namespace WPFApplication
         SqlDataAdapter DataRead;
         DB con;
         int idFilm;
+        string trailerPath;
 
         public filmDetails()
         {
@@ -26,16 +27,18 @@ namespace WPFApplication
           
         }
 
-        public filmDetails(int id, DB conn, string film, string posterpath)
+        public filmDetails(int id, DB conn, string film, string posterpath, string trailerpath)
         {
             InitializeComponent();
             con = conn;
             idFilm = id;
+            trailerPath = trailerpath;
 
             titleLabel.Content = film;
             loadImage(posterpath);
             actorsDataGrid.ItemsSource = fillDataGrid("Actor").DefaultView;
             directorsDataGrid.ItemsSource = fillDataGrid("Realisateur").DefaultView;
+            genreDataGrid.ItemsSource = fillDataGrid("Genre").DefaultView;
            
 
 
@@ -57,10 +60,12 @@ namespace WPFApplication
             var image = new BitmapImage();
             int BytesToRead = 100;
 
-            WebRequest request = WebRequest.Create(new Uri("http://image.tmdb.org/t/p/w185/" + posterPath, UriKind.Absolute));
-            request.Timeout = -1;
+            try
+            {
+                WebRequest request = WebRequest.Create(new Uri("http://image.tmdb.org/t/p/w185/" + posterPath, UriKind.Absolute));
+                request.Timeout = -1;
 
-            WebResponse response = request.GetResponse();
+                WebResponse response = request.GetResponse();
                 Stream responseStream = response.GetResponseStream();
                 BinaryReader reader = new BinaryReader(responseStream);
                 MemoryStream memoryStream = new MemoryStream();
@@ -81,6 +86,19 @@ namespace WPFApplication
                 image.EndInit();
 
                 posterPicture.Source = image;
+            }
+            catch (WebException e) {
+                System.Windows.MessageBox.Show(e.Message);
+            }
+        }
+
+        private void trailerButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(trailerPath);
+            }
+            catch { }
         }
     }
 }

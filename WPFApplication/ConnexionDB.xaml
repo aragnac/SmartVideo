@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFApplication"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="ConnexionDB" Height="201.88" Width="300">
     <Grid>
         <Label Content="Nom du Serveur :" HorizontalAlignment="Left" Margin="23,24,0,0" VerticalAlignment="Top"/>
