@@ -5,6 +5,7 @@ using System.Collections;
 using WCFLibrary;
 using FilmDTOLibrary;
 using System.Collections.Generic;
+using System;
 
 namespace WPFApplication
 {
@@ -13,37 +14,33 @@ namespace WPFApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        ServiceHostReference.ToolsBDClient s;
         int offset = 0;
 
         public MainWindow()
         {
             InitializeComponent();
-            ServiceHostReference.ToolsBDClient s = new ServiceHostReference.ToolsBDClient();
+            try
+            {
+                s = new ServiceHostReference.ToolsBDClient();
+            }catch(Exception e)
+            {
+                MessageBox.Show("Impossible d'atteindre le service WCF! \n" + e.Message);
+            }
             ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
-
-
-        /*public void fillDataGrid()
-        {
-
-            DataRead = ("Film", offset);
-
-            DataTable table = new DataTable("Films");
-            DataRead.Fill(table);
-            //table.Columns.Remove("posterpath");
-            ResultDataGrid.ItemsSource = table.DefaultView;
-            
-        }*/
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
             if (offset != 0)
                 offset -= 20;
+            ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
             offset += 20;
+            ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
 
         private void ResultDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -51,11 +48,11 @@ namespace WPFApplication
 
             if (ResultDataGrid.SelectedItem != null)
             {
-                DataRowView row = (DataRowView)ResultDataGrid.SelectedItems[0];
-                int id = (int)row["id"];
+                FilmDTO film = (FilmDTO)ResultDataGrid.SelectedItems[0];
+                int id = film.Id;
 
-                //filmDetails filmdetails = new filmDetails(id, con, (string)row["title"], (string)row["posterpath"], (string)row["trailerpath"]);
-                //filmdetails.ShowDialog();
+                filmDetails filmdetails = new filmDetails(id, film.Title, film.Posterpath, film.Trailerpath);
+                filmdetails.ShowDialog();
             }
 
         }

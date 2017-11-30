@@ -102,7 +102,7 @@ namespace FilmDTOLibrary
             }
         }
 
-        public List<GenreDTO> Genrelist
+       /* public List<GenreDTO> Genrelist
         {
             get
             {
@@ -139,14 +139,14 @@ namespace FilmDTOLibrary
             {
                 acteurlist = value;
             }
-        }
+        }*/
 
         // Préparation de la classe pour recevoir les données
         public FilmDTO()
         {
-            Genrelist = new List<GenreDTO>();
+           /* Genrelist = new List<GenreDTO>();
             Realisateurlist = new List<RealisateurDTO>();
-            Acteurlist = new List<ActeurDTO>();
+            Acteurlist = new List<ActeurDTO>();*/
         }
     }
 

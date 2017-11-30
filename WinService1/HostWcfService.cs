@@ -2,7 +2,7 @@
 using System;
 using System.ServiceModel;
 using System.ServiceProcess;
-
+using System.Diagnostics;
 
 namespace WinService1
 {
@@ -26,6 +26,7 @@ namespace WinService1
             service1Host.AddDefaultEndpoints();
 
             service1Host.Open();
+            EventLog.WriteEntry("WinSer1HostWCF", "Service WCF démarré", EventLogEntryType.Information);
         }
 
         protected override void OnStop()

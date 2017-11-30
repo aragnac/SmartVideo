@@ -126,6 +126,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{9AFF0D51-674E-4E15-BA30-DCCF83B6D28A}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FilmDTOLibrary\FilmDTOLibrary.csproj">
       <Project>{4577d9f4-496f-4891-96b0-da152984bfb6}</Project>
       <Name>FilmDTOLibrary</Name>

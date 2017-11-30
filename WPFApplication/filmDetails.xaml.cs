@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -15,6 +16,7 @@ namespace WPFApplication
     //Lien vers les poster des film : http://image.tmdb.org/t/p/w185/gZCJZOn4l0Zj5hAxsMbxoS6CL0u.jpg
     public partial class filmDetails : Window
     {
+        DBFilm filmBLL;
         int idFilm;
         string trailerPath;
 
@@ -27,14 +29,15 @@ namespace WPFApplication
         public filmDetails(int id,string film, string posterpath, string trailerpath)
         {
             InitializeComponent();
+            filmBLL = new DBFilm();
             idFilm = id;
             trailerPath = trailerpath;
 
             titleLabel.Content = film;
             loadImage(posterpath);
-            actorsDataGrid.ItemsSource = fillDataGrid("Actor").DefaultView;
-            directorsDataGrid.ItemsSource = fillDataGrid("Realisateur").DefaultView;
-            genreDataGrid.ItemsSource = fillDataGrid("Genre").DefaultView;
+            actorsDataGrid.ItemsSource = filmBLL.GetActorWithId(id);
+            directorsDataGrid.ItemsSource = filmBLL.GetDirectorWithId(id);
+            genreDataGrid.ItemsSource = filmBLL.GetGenreWithId(id);
            
 
 
