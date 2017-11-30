@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc065bae-a261-479f-8d95-58dbbef79ba3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f32fb242-2f5c-44b6-ab2f-da4d77849690" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e91cb2db-416e-4057-ad87-cbe29fa509c4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="fbc6f71e-4bf4-489e-8f23-2e8ceec5227b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/mex" />
+    <MetadataFile FileName="FilmDTOLibrary.xsd" MetadataType="Schema" ID="7db6ec90-14a8-4f09-ad26-233764e95bf3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

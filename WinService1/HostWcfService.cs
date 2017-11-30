@@ -2,15 +2,15 @@
 using System;
 using System.ServiceModel;
 using System.ServiceProcess;
-using WCFService;
+
 
 namespace WinService1
 {
-    public partial class Service1 : ServiceBase
+    public partial class HostWcfService : ServiceBase
     {
         ServiceHost service1Host = null;
 
-        public Service1()
+        public HostWcfService()
         {
             InitializeComponent();
         }
@@ -22,7 +22,7 @@ namespace WinService1
                 service1Host.Close();
             }
 
-            service1Host = new ServiceHost(typeof(ToolsBD), new Uri("http://localhost:8733/Design_Time_Addresses/SmartVideo/ToolsBD/"));
+            service1Host = new ServiceHost(typeof(ToolsBD), new Uri("http://localhost:8733/Design_Time_Addresses/WCFLibrary/ToolsBD/"));
             service1Host.AddDefaultEndpoints();
 
             service1Host.Open();

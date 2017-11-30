@@ -1,5 +1,4 @@
-﻿using DAL;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -16,8 +15,6 @@ namespace WPFApplication
     //Lien vers les poster des film : http://image.tmdb.org/t/p/w185/gZCJZOn4l0Zj5hAxsMbxoS6CL0u.jpg
     public partial class filmDetails : Window
     {
-        SqlDataAdapter DataRead;
-        DB con;
         int idFilm;
         string trailerPath;
 
@@ -27,10 +24,9 @@ namespace WPFApplication
           
         }
 
-        public filmDetails(int id, DB conn, string film, string posterpath, string trailerpath)
+        public filmDetails(int id,string film, string posterpath, string trailerpath)
         {
             InitializeComponent();
-            con = conn;
             idFilm = id;
             trailerPath = trailerpath;
 
@@ -47,10 +43,10 @@ namespace WPFApplication
         public DataTable fillDataGrid(string tempTable)
         {
 
-            DataRead = con.SelectWithId(tempTable, idFilm );
+            //DataRead = con.SelectWithId(tempTable, idFilm );
 
             DataTable table = new DataTable(tempTable);
-            DataRead.Fill(table);
+            //DataRead.Fill(table);
             //table.Columns.Remove("posterpath");
             return table;
         }

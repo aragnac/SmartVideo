@@ -1,6 +1,6 @@
 ﻿namespace WinService1
 {
-    partial class Service1
+    partial class HostWcfService
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.

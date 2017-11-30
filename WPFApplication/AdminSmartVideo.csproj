@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +72,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Connected Services\ServiceHostReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ConnexionDB.xaml.cs">
       <DependentUpon>ConnexionDB.xaml</DependentUpon>
     </Compile>
@@ -99,6 +106,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceHostReference\FilmDTOLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceHostReference\service.wsdl" />
+    <None Include="Connected Services\ServiceHostReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceHostReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\FilmDTOLibrary.FilmDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,10 +126,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{96F29447-7644-4748-A6F5-83536AD1CA37}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\FilmDTOLibrary\FilmDTOLibrary.csproj">
+      <Project>{4577d9f4-496f-4891-96b0-da152984bfb6}</Project>
+      <Name>FilmDTOLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WCFLibrary\WCFLibrary.csproj">
+      <Project>{76bbae70-973b-4fc6-bdec-79da8382d4ac}</Project>
+      <Name>WCFLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceHostReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceHostReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceHostReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceHostReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
