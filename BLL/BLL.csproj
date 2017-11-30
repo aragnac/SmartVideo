@@ -48,6 +48,10 @@
       <Project>{96f29447-7644-4748-a6f5-83536ad1ca37}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FilmDTOLibrary\FilmDTOLibrary.csproj">
+      <Project>{4577d9f4-496f-4891-96b0-da152984bfb6}</Project>
+      <Name>FilmDTOLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
