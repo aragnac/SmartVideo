@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinService2", "WinService2\WinService2.csproj", "{4B4679B4-BF32-4331-9D93-58821428951A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{46B3FB37-92F3-4FDE-85EB-AC8BE8654CCE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76BBAE70-973B-4FC6-BDEC-79DA8382D4AC} = {76BBAE70-973B-4FC6-BDEC-79DA8382D4AC}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSmartVideo", "WPFApplication\AdminSmartVideo.csproj", "{54A3EAF6-67CE-4BEC-B52B-1C1D1828BF8C}"
 EndProject
