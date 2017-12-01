@@ -10,11 +10,11 @@ namespace WebApplication
 {
     public partial class SiteMaster : MasterPage
     {
-        ServiceHostReference.ToolsBDClient s;
+        //ServiceHostReference.ToolsBDClient s;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+           /* try
             {
                 s = new ServiceHostReference.ToolsBDClient();
                 MovieGridView.DataSource = s.GetFilms("Films", 0);
@@ -26,7 +26,7 @@ namespace WebApplication
             catch (Exception ex)
             {
                 //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Impossible d atteindre le service WCF')", true);
-            }
+            }*/
         }
 
         protected void MovieGridView_SelectedIndexChanged(object sender, EventArgs e)

@@ -13,9 +13,9 @@ namespace FilmDTOLibrary
             // Copyright (c) 2016 All Rights Reserved
             // <author>Cécile Moitroux</author>
             // </copyright>
-        private List<GenreDTO> genrelist;
-        private List<RealisateurDTO> realisateurlist;
-        private List<ActeurDTO> acteurlist;
+       // private List<GenreDTO> genrelist;
+        //private List<RealisateurDTO> realisateurlist;
+        //private List<ActeurDTO> acteurlist;
 
         private int id;
         private string title;

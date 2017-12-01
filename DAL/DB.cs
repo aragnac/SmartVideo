@@ -58,7 +58,7 @@ namespace DAL
             var query = "SELECT * FROM "+ table + ";";
             try
             {
-                var list = _context.ExecuteQuery<FilmDTO>(query).Skip(start).Take(20).Select(f => new FilmDTO
+                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Skip(start).Take(20).Select(f => new FilmDTO
                 {
                     Id = f.Id,
                     Title = f.Title,
@@ -68,6 +68,7 @@ namespace DAL
                     Trailerpath = f.Trailerpath
                 }).ToList();
                 return list;
+
             }
             catch (Exception e)
             {
