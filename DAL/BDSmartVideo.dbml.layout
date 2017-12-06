@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BDSmartVideo">
+  <DataContextMoniker Name="/BDSmartVideoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2c7a4d8c-9089-46a9-9b89-3e1da30bc57a" absoluteBounds="0.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDSmartVideoDataContext/Hit" />
+      <nestedChildShapes>
+        <elementListCompartment Id="034dae50-be9a-4a14-a797-b622c4117e23" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="adf40445-d820-49c1-9af7-abbfd35583f9" absoluteBounds="3, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDSmartVideoDataContext/Location" />
+      <nestedChildShapes>
+        <elementListCompartment Id="687f2afb-85f8-4895-b9a5-88061d1917ab" absoluteBounds="3.015, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1577345f-1690-46f3-85a1-f06a7e19d3cf" absoluteBounds="0.5, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDSmartVideoDataContext/Statistiques" />
+      <nestedChildShapes>
+        <elementListCompartment Id="54a18530-e331-48e8-977b-fd6aac1f6c1e" absoluteBounds="0.51500000000000012, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c0fca3d-4b78-4b35-adc5-d6349bc1d7c2" absoluteBounds="3, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDSmartVideoDataContext/Utilisateur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b0fcc3e0-4ca4-4440-bd5c-6331d9fbe2ec" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

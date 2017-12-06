@@ -13,11 +13,6 @@ namespace DAL
         public DataClassesDataContext _context = null;
         private static DB _instance;
 
-        /* public static DB Singleton(String servername, String dbname)
-         {
-             return _instance ?? (_instance = new DB(servername, dbname));
-         }*/
-
         public static DB Singleton()
         {
             return _instance ?? (_instance = new DB("ARAGNAC", "FilmDB"));

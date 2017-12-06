@@ -6,6 +6,7 @@ using WCFLibrary;
 using FilmDTOLibrary;
 using System.Collections.Generic;
 using System;
+using WPFApplication.ServiceHostReference;
 
 namespace WPFApplication
 {
@@ -14,19 +15,24 @@ namespace WPFApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        ServiceHostReference.ToolsBDClient s;
+        ToolsBDClient s;
+        
         int offset = 0;
 
         public MainWindow()
         {
             InitializeComponent();
+            s = null;
             try
             {
-                s = new ServiceHostReference.ToolsBDClient();
-            }catch(Exception e)
+                s = new ToolsBDClient();
+
+            }
+            catch(Exception e)
             {
                 MessageBox.Show("Impossible d'atteindre le service WCF! \n" + e.Message);
             }
+            //if ((listtemp = s.GetFilms("Film", offset)) != null) ;
             ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
 
