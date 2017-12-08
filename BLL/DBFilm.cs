@@ -35,5 +35,10 @@ namespace BLL
             return database.GetDirectorWithId(id);
         }
 
+        /*public bool addTrailer(string trailerPath)
+        {
+            return database.addTrailer;
+        }*/
+
     }
 }

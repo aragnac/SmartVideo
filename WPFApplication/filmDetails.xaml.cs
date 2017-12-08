@@ -18,6 +18,7 @@ namespace WPFApplication
     {
         DBFilm filmBLL;
         int idFilm;
+        string filmTitle;
         string trailerPath;
 
         public filmDetails()
@@ -33,6 +34,7 @@ namespace WPFApplication
             idFilm = id;
             trailerPath = trailerpath;
 
+            filmTitle = film;
             titleLabel.Content = film;
             loadImage(posterpath);
             actorsDataGrid.ItemsSource = filmBLL.GetActorWithId(id);
@@ -98,6 +100,18 @@ namespace WPFApplication
                 System.Diagnostics.Process.Start(trailerPath);
             }
             catch { }
+        }
+
+        private void ajoutTrailer_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle);
+            ajouttrailer.ShowDialog();
+        }
+
+        private void modifierTrailer_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle, trailerPath);
+            ajouttrailer.ShowDialog();
         }
     }
 }

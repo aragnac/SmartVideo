@@ -33,5 +33,14 @@ namespace WebApplication
         {
 
         }
+
+        protected void signIn_Click(object sender, EventArgs e)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "mainNav.on", true);
+        }
+        protected void signUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,0 +1,15 @@
+﻿<Window x:Class="WPFApplication.AjoutTrailer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApplication"
+        mc:Ignorable="d"
+        Title="AjoutTrailer" Height="221.053" Width="300">
+    <Grid>
+        <Label x:Name="filmLabel" Content="Ajouter un trailer pour le film :" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.784,-0.616"/>
+        <TextBox x:Name="trailerTextBox" HorizontalAlignment="Left" Height="23" Margin="10,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272"/>
+        <Button x:Name="addButton" Content="Button" Click="addButton_Click" HorizontalAlignment="Left" Margin="105,123,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

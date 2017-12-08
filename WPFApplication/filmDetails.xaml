@@ -6,17 +6,32 @@
         xmlns:local="clr-namespace:WPFApplication"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="filmDetails" Height="489.196" Width="583.083">
-    <Grid Margin="0,0,0,-1" HorizontalAlignment="Left" Width="573">
+        Title="filmDetails" Height="494.196" Width="583.083">
+    <Grid Margin="0,10,0,-3" HorizontalAlignment="Left" Width="573">
+        <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" Width="517">
+            <MenuItem Header = "Options" >
+                <MenuItem Header = "Trailer" HorizontalAlignment = "Left" 
+               Width = "200">
+                    <MenuItem x:Name="ajoutTrailer" Header = "Ajouter Trailer" HorizontalAlignment = "Left" 
+                     Width = "200" Click="ajoutTrailer_Click"/>
+                    <Separator HorizontalAlignment = "Left" Width = "200"/>
+                    <MenuItem x:Name="modifierTrailer" Header = "Modifier Trailer" HorizontalAlignment = "Left" 
+                     Width = "200" Click="modifierTrailer_Click">
+                    </MenuItem>
+                </MenuItem>
+
+            </MenuItem>
+
+        </Menu>
         <Image x:Name="posterPicture" HorizontalAlignment="Left" Height="210" Margin="10,51,0,0" VerticalAlignment="Top" Width="160"/>
-        <Label x:Name="titleLabel" Content="titreIci" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label x:Name="titleLabel" Content="titreIci" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="135"/>
         <Label Content="Acteurs :" HorizontalAlignment="Left" Margin="247,20,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Producteurs :" HorizontalAlignment="Left" Margin="247,213,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.563,1.904"/>
         <DataGrid x:Name="actorsDataGrid" HorizontalAlignment="Left" Height="139" Margin="242,51,-108,0" VerticalAlignment="Top" Width="316"/>
         <DataGrid x:Name="directorsDataGrid" HorizontalAlignment="Left" Height="139" Margin="242,244,-108,0" VerticalAlignment="Top" Width="316"/>
         <Label Content="Genres:" HorizontalAlignment="Left" Margin="10,266,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.468,0.63"/>
         <DataGrid x:Name="genreDataGrid" HorizontalAlignment="Left" Height="86" Margin="19,297,0,0" VerticalAlignment="Top" Width="160"/>
-        <Button x:Name="trailerButton" Content="Trailer" HorizontalAlignment="Left" Margin="214,414,0,0" VerticalAlignment="Top" Width="155" Height="24" Click="trailerButton_Click"/>
+        <Button x:Name="trailerButton" Content="Trailer" HorizontalAlignment="Left" Margin="217,414,0,0" VerticalAlignment="Top" Width="155" Height="24" Click="trailerButton_Click"/>
 
     </Grid>
 </Window>

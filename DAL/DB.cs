@@ -24,7 +24,7 @@ namespace DAL
 
             try {
                 _context = new DataClassesDataContext(connectionString);
-                MessageBox.Show("Connexion Ouverte ");
+                //MessageBox.Show("Connexion Ouverte ");
 
             }catch (Exception ex) {
                 MessageBox.Show("Impossible d'ouvrir la connexion! \n" + ex.Message);
