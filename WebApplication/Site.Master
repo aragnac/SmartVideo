@@ -65,7 +65,7 @@
                         %>
                         <%if (this.Connexion)
                             { %>
-                            <li id="user"><a runat="server">connecté :<% = this.User %></a></li>
+                            <li id="user"><a runat="server">connecté :<% = (string)Session["user"] %></a></li>
                             <li id="logout"><a runat="server"  class="cd-signup nav-menu" onserverclick="LogoutBtn_Click">Déconnexion</a></li>
                         <%} else { %>
                             <li id="cc"><a runat="server"  class="cd-signin nav-menu"  onserverclick="SignIn_Click">Se connecter</a></li>

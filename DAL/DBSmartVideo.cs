@@ -44,7 +44,7 @@ namespace DAL
             Utilisateur temp = new Utilisateur();
             temp.UserName = user.UserName;
             temp.Password = user.Password;
-            temp.Password = user.Prenom;
+            temp.Prenom = user.Prenom;
             temp.Nom = user.Nom;
 
             //Adds an entity in a pending insert state to this System.Data.Linq.Table<TEntity>and parameter is the entity which to be added

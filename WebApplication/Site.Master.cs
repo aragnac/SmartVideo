@@ -32,15 +32,14 @@ namespace WebApplication
 
         protected void SignIn_Click(object sender, EventArgs e)
         {
-            //Connexion = true;
-            Session["Master"] = this;
-            Server.Transfer("~/LogRegis.aspx");
+
+            Server.Transfer("~/Login.aspx");
 
             //Ou Response.Redirect("page.aspx?query=bla")
         }
         protected void SignUp_Click(object sender, EventArgs e)
         {
-
+            Server.Transfer("~/LogRegis.aspx");
         }
 
         public string User
