@@ -220,8 +220,11 @@ textarea {
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 70%;
+    margin-left: 20%;
+    margin-right: 15%;
 }
 
 @media print {
@@ -860,6 +863,9 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+    top: 0px;
+    left: 0px;
+    height: 176px;
 }
 
 .col-xs-1,

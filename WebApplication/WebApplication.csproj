@@ -165,6 +165,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="LogRegis.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -233,6 +234,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogRegis.aspx.cs">
+      <DependentUpon>LogRegis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogRegis.aspx.designer.cs">
+      <DependentUpon>LogRegis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -276,6 +284,10 @@
     <WCFMetadataStorage Include="Connected Services\ServiceHostReference\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{9aff0d51-674e-4e15-ba30-dccf83b6d28a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FilmDTOLibrary\FilmDTOLibrary.csproj">
       <Project>{4577d9f4-496f-4891-96b0-da152984bfb6}</Project>
       <Name>FilmDTOLibrary</Name>

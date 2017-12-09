@@ -8,25 +8,16 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
+
     public partial class SiteMaster : MasterPage
     {
         //ServiceHostReference.ToolsBDClient s;
+        protected string _user = "";
+        protected Boolean _connected = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           /* try
-            {
-                s = new ServiceHostReference.ToolsBDClient();
-                MovieGridView.DataSource = s.GetFilms("Films", 0);
-                MovieGridView.DataBind();
-                List<FilmDTO> film = new List<FilmDTO>();
-                //film = s.GetFilms("Films", 0);
-                
-            }
-            catch (Exception ex)
-            {
-                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Impossible d atteindre le service WCF')", true);
-            }*/
+
         }
 
         protected void MovieGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,13 +25,34 @@ namespace WebApplication
 
         }
 
-        protected void signIn_Click(object sender, EventArgs e)
+        protected void LogoutBtn_Click(object sender, EventArgs e)
         {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "mainNav.on", true);
+            Session["connected"] = false;
         }
-        protected void signUp_Click(object sender, EventArgs e)
+
+        protected void SignIn_Click(object sender, EventArgs e)
+        {
+            //Connexion = true;
+            Session["Master"] = this;
+            Server.Transfer("~/LogRegis.aspx");
+
+            //Ou Response.Redirect("page.aspx?query=bla")
+        }
+        protected void SignUp_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public string User
+        {
+            get { return _user; }
+            set { _user = value; }
+        }
+
+        public Boolean Connexion
+        {
+            get { return _connected; }
+            set { _connected = value; }
         }
     }
 }
