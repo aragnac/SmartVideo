@@ -13,16 +13,73 @@
   <wsdl:message name="IToolsBD_GetFilms_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFilmsResponse" />
   </wsdl:message>
+  <wsdl:message name="IToolsBD_SearchMovies_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMovies" />
+  </wsdl:message>
+  <wsdl:message name="IToolsBD_SearchMovies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToolsBD_GetMoviesByActor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByActor" />
+  </wsdl:message>
+  <wsdl:message name="IToolsBD_GetMoviesByActor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesByActorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IToolsBD_SearchActors_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActors" />
+  </wsdl:message>
+  <wsdl:message name="IToolsBD_SearchActors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActorsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IToolsBD">
     <wsdl:operation name="GetFilms">
       <wsdl:input wsaw:Action="http://tempuri.org/IToolsBD/GetFilms" message="tns:IToolsBD_GetFilms_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IToolsBD/GetFilmsResponse" message="tns:IToolsBD_GetFilms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchMovies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToolsBD/SearchMovies" message="tns:IToolsBD_SearchMovies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToolsBD/SearchMoviesResponse" message="tns:IToolsBD_SearchMovies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByActor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToolsBD/GetMoviesByActor" message="tns:IToolsBD_GetMoviesByActor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToolsBD/GetMoviesByActorResponse" message="tns:IToolsBD_GetMoviesByActor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchActors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IToolsBD/SearchActors" message="tns:IToolsBD_SearchActors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IToolsBD/SearchActorsResponse" message="tns:IToolsBD_SearchActors_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IToolsBD" type="tns:IToolsBD">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetFilms">
       <soap:operation soapAction="http://tempuri.org/IToolsBD/GetFilms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMovies">
+      <soap:operation soapAction="http://tempuri.org/IToolsBD/SearchMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesByActor">
+      <soap:operation soapAction="http://tempuri.org/IToolsBD/GetMoviesByActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchActors">
+      <soap:operation soapAction="http://tempuri.org/IToolsBD/SearchActors" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

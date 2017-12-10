@@ -35,6 +35,21 @@ namespace BLL
             return database.GetDirectorWithId(id);
         }
 
+        public List<FilmDTO> SearchMovies(string table, string search)
+        {
+            return database.SearchMovies(table, search);
+        }
+
+        public List<FilmDTO> GetMoviesByActor(string id)
+        {
+            return database.GetMoviesByActor(id);
+        }
+
+        public List<ActeurDTO> SearchActors(string table, string search)
+        {
+            return database.SearchActors(table, search);
+        }
+
         /*public bool addTrailer(string trailerPath)
         {
             return database.addTrailer;

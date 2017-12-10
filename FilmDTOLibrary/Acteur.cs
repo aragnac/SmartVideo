@@ -79,6 +79,12 @@ namespace FilmDTOLibrary
             characterdetail = tmp.Split(delimiterChars);
             Character = characterdetail[0];
         }
+
+        public override string ToString()
+        {
+
+            return Name+" - " + Character;
+        }
     }
     public class Acteurs
     {

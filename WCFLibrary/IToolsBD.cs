@@ -15,5 +15,14 @@ namespace WCFLibrary
 
         [OperationContract]
         List<FilmDTO> GetFilms(string table, int start);
+
+        [OperationContract]
+        List<FilmDTO> SearchMovies(string table, string search);
+
+        [OperationContract]
+        List<FilmDTO> GetMoviesByActor(string id);
+
+        [OperationContract]
+        List<ActeurDTO> SearchActors(string table, string search);
     }
 }

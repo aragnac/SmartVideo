@@ -16,4 +16,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SearchMovies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="table" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchMoviesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FilmDTOLibrary" minOccurs="0" name="SearchMoviesResult" nillable="true" type="q2:ArrayOfFilmDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoviesByActor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoviesByActorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FilmDTOLibrary" minOccurs="0" name="GetMoviesByActorResult" nillable="true" type="q3:ArrayOfFilmDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="table" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="search" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FilmDTOLibrary" minOccurs="0" name="SearchActorsResult" nillable="true" type="q4:ArrayOfActeurDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

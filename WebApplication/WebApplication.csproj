@@ -161,10 +161,10 @@
     <None Include="Connected Services\ServiceHostReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\ServiceHostReference\WebApplication.ServiceHostReference.FilmDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
+    <Content Include="Properties\DataSources\FilmDTOLibrary.FilmDTO.datasource" />
+    <Content Include="Properties\DataSources\FilmDTOLibrary.ActeurDTO.datasource" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Img\catalogue-film-Netflix-Smartflix.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="LogRegis.aspx" />
     <Content Include="Scripts\bootstrap.js" />

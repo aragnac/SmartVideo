@@ -21,6 +21,88 @@
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 
+
+div.ticket {
+    border: 1px #e8e8e8 solid;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px #606060;
+    background-color: #e8e8e8;
+    padding: 1.5em;
+    margin-bottom: 2.5em;
+    height: 100%;
+}
+
+div.ticket:hover {
+    transition-duration: 0.5s;
+    box-shadow: 0 0 20px 5px #606060;
+}
+
+div.ticket h2.title h4 {
+    font-size: 30px;
+    left: 0;
+    width: 0;
+    text-align : center;
+}
+
+    div.ticket img {
+        max-width: 100%;
+        max-height: 100%;
+        display: inline-block;
+        border: 15px;
+        border-color: darkslategrey;
+        float: left;
+        margin-bottom: 10%;
+    }
+
+div.ticket h2.title + span.date {
+    font-size: 20px;
+    padding: 0 .2em;
+}
+
+div.ticket h2.title,
+div.ticket h2.title + span.date + form {
+    display: inline;
+}
+
+    div.ticket p {
+        color: #4c4a37;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+        line-height: 32px;
+        margin: 0 0 24px;
+    }
+
+    div.ticket .prix {
+        float: right;
+        font-size: 17px;
+    }
+
+    div.ticket input {
+        float: left;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    div.ticket .buyBtn {
+        width: 130px;
+    }
+
+    div.ticket .buyBtn {
+        position: relative;
+        background-color: #343642;
+        color: white;
+        border: solid 1px #292a34;
+        transition: background-color .5s;
+        border-radius: 1em;
+        width: 30%;
+        margin-left: 6%;
+        margin-top: 2%;
+    }
+
+        div.ticket .buyBtn:hover {
+            background-color: #2f889a;
+        }
+
 article,
 aside,
 details,
@@ -479,6 +561,13 @@ h6,
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
+}
+
+h4.mainTitle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align : center;
 }
 
 h1 small,
@@ -1109,6 +1198,7 @@ pre code {
   }
   .col-md-3 {
     width: 25%;
+    background-image : url("~/Img/backGroung.jpg");
   }
   .col-md-4 {
     width: 33.33333333333333%;
@@ -1684,7 +1774,6 @@ input[type="file"] {
 
 select[multiple],
 select[size] {
-  height: auto;
 }
 
 select optgroup {

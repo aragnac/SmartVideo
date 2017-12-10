@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.ServiceName = "SMServiceInstaller";
+            //this.ServiceName = "SMServiceInstaller";
         }
 
         #endregion

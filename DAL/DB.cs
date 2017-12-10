@@ -72,6 +72,75 @@ namespace DAL
             }
         }
 
+        public List<FilmDTO> GetMoviesByActor(string id)
+        {
+            var query = "select Film.* from Film INNER JOIN FilmActor on FilmActor.id_film = Film.id WHERE FilmActor.id = " + id + ";";
+
+            try
+            {
+                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Select(f => new FilmDTO
+                {
+                    Id = f.Id,
+                    Title = f.Title,
+                    Original_title = f.Original_title,
+                    Runtime = f.Runtime,
+                    Posterpath = f.Posterpath,
+                    Trailerpath = f.Trailerpath
+                }).ToList();
+                return list;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<FilmDTO>();
+            }
+        }
+
+        public List<FilmDTO> SearchMovies(string table, string search)
+        {
+            var query = "select * from Film where title LIKE '%" + search + "%' or original_title LIKE '%" + search + "%';";
+
+            try
+            {
+                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Select(f => new FilmDTO
+                {
+                    Id = f.Id,
+                    Title = f.Title,
+                    Original_title = f.Original_title,
+                    Runtime = f.Runtime,
+                    Posterpath = f.Posterpath,
+                    Trailerpath = f.Trailerpath
+                }).ToList();
+                return list;
+
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<FilmDTO>();
+            }
+        }
+
+        public List<ActeurDTO> SearchActors(string table, string search)
+        {
+            var query = "select * from Actor where name LIKE '%" + search + "%';";
+
+            try
+            {
+                List<ActeurDTO> list = _context.ExecuteQuery<ActeurDTO>(query).Select(a => new ActeurDTO
+                {
+                    Name = a.Name,
+                    Id = a.Id,
+                    Character = a.Character
+                }).ToList();
+                return list;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<ActeurDTO>();
+            }
+        }
+
         public List<GenreDTO> GetGenreWithId(int id)
         {
             var query = "SELECT Genre.* FROM FilmGenre INNER JOIN Genre ON FilmGenre.id_genre = Genre.id WHERE FilmGenre.id_film = " + id + ";";
