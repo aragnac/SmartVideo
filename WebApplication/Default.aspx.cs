@@ -17,6 +17,7 @@ namespace WebApplication
         DBFilm filmBLL;
         public List<FilmDTO> listFilms;
         public List<ActeurDTO> listActors;
+        private string idActor;
 
         protected void Page_Load(object sender, EventArgs e)
         { 
@@ -74,21 +75,27 @@ namespace WebApplication
             }
             else
             {
-                listFilms = s.SearchMovies("Film", searchTB.Text);
+                if(filmCB.Checked)
+                {
+                    listFilms = s.GetMoviesByActor(idActor);
+                }
+                else 
+                    listFilms = s.SearchMovies("Film", searchTB.Text);
             }
 
         }
 
-        protected void acteurCB_CheckedChanged(object sender, EventArgs e)
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (filmCB.Checked)
-                filmCB.Checked = false;
-        }
+            searchTB.Text = ListBox1.SelectedItem.Text;
+            foreach(ActeurDTO acteur in listActors)
+            {
+                if (acteur.Name.Equals(ListBox1.SelectedItem.Text))
+                {
+                    idActor = acteur.Id.ToString();
+                }
+            }
 
-        protected void filmCB_CheckedChanged(object sender, EventArgs e)
-        {
-            if (acteurCB.Checked)
-                acteurCB.Checked = false;
         }
     }
 }

@@ -83,7 +83,7 @@ namespace FilmDTOLibrary
         public override string ToString()
         {
 
-            return Name+" - " + Character;
+            return Name;
         }
     }
     public class Acteurs
