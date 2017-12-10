@@ -1,6 +1,6 @@
 ﻿namespace WinService2
 {
-    partial class Service1
+    partial class SMServiceInstaller
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+            this.ServiceName = "SMServiceInstaller";
         }
 
         #endregion

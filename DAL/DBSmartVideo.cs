@@ -5,6 +5,7 @@ using System.Data.Linq;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -75,6 +76,46 @@ namespace DAL
                 return new List<UtilisateurDTO>();
             }
         }
+
+        public List<HitDTO> GetHits()
+        {
+            var query = "select * from Hit order by Hits;";
+            try
+            {
+                List<HitDTO> list = _context.ExecuteQuery<HitDTO>(query).Select(h => new HitDTO
+                {
+                    IdType = h.IdType,
+                    TypeData = h.TypeData,
+                    Date = h.Date,
+                    Hits = h.Hits
+                }).ToList();
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<HitDTO>();
+            }
+        }
+
+        public Boolean AddStatistiques(StatistiquesDTO stat)
+        {
+
+            //Data maping object to our database
+            Statistiques temp = new Statistiques();
+            temp.TypeData = stat.TypeData;
+            temp.IdType = stat.IdType;
+            temp.DateStat = stat.DateStat;
+            temp.Position = stat.Position;
+
+            //Adds an entity in a pending insert state to this System.Data.Linq.Table<TEntity>and parameter is the entity which to be added
+            _context.Statistiques.InsertOnSubmit(temp);
+            // executes the appropriate commands to implement the changes to the database
+            _context.SubmitChanges();
+
+            return true;
+        }
+
 
         /* private void UpdateCourse()
          {

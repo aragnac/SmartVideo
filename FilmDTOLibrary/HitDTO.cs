@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmDTOLibrary
 {
-    class HitDTO
+    public class HitDTO
     {
         private string _idType;
         private string _typeData;
@@ -39,7 +39,7 @@ namespace FilmDTOLibrary
             set { _date = value; }
         }
 
-        public int Hit
+        public int Hits
         {
             get { return _hit; }
             set { _hit = value; }
@@ -50,7 +50,7 @@ namespace FilmDTOLibrary
             IdType = idType;
             TypeData = typeData;
             Date = date;
-            Hit = hit;
+            Hits = hit;
         }
 
         public HitDTO()

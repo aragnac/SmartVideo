@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FilmDTOLibrary
 {
-    class StatistiquesDTO
+    public class StatistiquesDTO
     {
         private string _idType;
         private string _typeData;
-        private string _dateStat;
+        private DateTime _dateStat;
         private int _position;
 
 
@@ -33,7 +33,7 @@ namespace FilmDTOLibrary
             set { _typeData = value; }
         }
 
-        public string DateStat
+        public DateTime DateStat
         {
             get { return _dateStat; }
             set { _dateStat = value; }
@@ -45,7 +45,7 @@ namespace FilmDTOLibrary
             set { _position = value; }
         }
 
-        public StatistiquesDTO(string idType, string typeData, string datestat, int pos)
+        public StatistiquesDTO(string idType, string typeData, DateTime datestat, int pos)
         {
             IdType = idType;
             TypeData = typeData;
