@@ -57,10 +57,8 @@
                         <li><a runat="server" href="~/">Accueil</a></li>
                         <li><a runat="server" href="~/About">À propos de</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <%if(Session["connected"] != null)
-                                this.Connexion = (Boolean)Session["connected"]; 
-                        %>
-                        <%if (this.Connexion)
+
+                        <%if ((bool)Session["connected"])
                             { %>
                             <li id="user"><a runat="server">connecté :<% = (string)Session["user"] %></a></li>
                             <li id="logout"><a runat="server"  class="cd-signup nav-menu" onserverclick="LogoutBtn_Click">Déconnexion</a></li>

@@ -13,11 +13,12 @@ namespace WebApplication
     {
         //ServiceHostReference.ToolsBDClient s;
         protected string _user = "";
-        protected Boolean _connected = false;
+        //protected Boolean _connected = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["connected"] == null)
+                Session["connected"] = false;
         }
 
         protected void MovieGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,10 +49,10 @@ namespace WebApplication
             set { _user = value; }
         }
 
-        public Boolean Connexion
+       /* public Boolean Connexion
         {
             get { return _connected; }
             set { _connected = value; }
-        }
+        }*/
     }
 }
