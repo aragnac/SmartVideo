@@ -49,7 +49,11 @@
                     <%=real.Name + ", " %>
                     <%} %>
                 </p><br />
-
+                <p>Genre: <%foreach (FilmDTOLibrary.GenreDTO genre in film.Genrelist)
+                       { %>
+                    <%=genre.Name + ", " %>
+                    <%} %>
+                </p><br />
 
         </div>
     <%} %>
