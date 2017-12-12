@@ -39,10 +39,16 @@
                 <h2 class="title"><%= film.Title %></h2><br / />
                 <p> Titre original : <%=film.Original_title %></p><br />
                 <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
+                <%int i = 0; %>
                 <p>Acteurs : <%foreach (FilmDTOLibrary.ActeurDTO acteur in film.Acteurlist)
-                       { %>
-                        <%=acteur.Name + "(" + acteur.Character + ")" + ", " %>
-                    <%} %>
+                               {
+                                     if (i < 8)
+                                     {%>
+                                        <%=acteur.Name + "(" + acteur.Character + ")" + ", " %>
+                                        <%i++; %>
+                                     <%}
+                               }%>
+                 ...
                 </p><br />
                 <p>Réalisateurs : <%foreach (FilmDTOLibrary.RealisateurDTO real in film.Realisateurlist)
                        { %>
