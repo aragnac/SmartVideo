@@ -8,9 +8,12 @@
   <xs:element name="ArrayOfFilmDTO" nillable="true" type="tns:ArrayOfFilmDTO" />
   <xs:complexType name="FilmDTO">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Acteurlist" nillable="true" type="tns:ArrayOfActeurDTO" />
+      <xs:element minOccurs="0" name="Genrelist" nillable="true" type="tns:ArrayOfGenreDTO" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Original_title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Posterpath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Realisateurlist" nillable="true" type="tns:ArrayOfRealisateurDTO" />
       <xs:element minOccurs="0" name="Runtime" type="xs:int" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Trailerpath" nillable="true" type="xs:string" />
@@ -31,4 +34,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ActeurDTO" nillable="true" type="tns:ActeurDTO" />
+  <xs:complexType name="ArrayOfGenreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GenreDTO" nillable="true" type="tns:GenreDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenreDTO" nillable="true" type="tns:ArrayOfGenreDTO" />
+  <xs:complexType name="GenreDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenreDTO" nillable="true" type="tns:GenreDTO" />
+  <xs:complexType name="ArrayOfRealisateurDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RealisateurDTO" nillable="true" type="tns:RealisateurDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRealisateurDTO" nillable="true" type="tns:ArrayOfRealisateurDTO" />
+  <xs:complexType name="RealisateurDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RealisateurDTO" nillable="true" type="tns:RealisateurDTO" />
 </xs:schema>

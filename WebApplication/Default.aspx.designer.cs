@@ -58,15 +58,6 @@ namespace WebApplication {
         protected global::System.Web.UI.WebControls.Button searchButton;
         
         /// <summary>
-        /// Contrôle MovieGridView.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MovieGridView;
-        
-        /// <summary>
         /// Contrôle previousBT.
         /// </summary>
         /// <remarks>
@@ -83,5 +74,15 @@ namespace WebApplication {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button nextBT;
+        
+        /// <summary>
+        /// Contrôle MovieGridView.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView MovieGridView;
+       
     }
 }

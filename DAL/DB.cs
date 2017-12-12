@@ -60,7 +60,11 @@ namespace DAL
                     Original_title = f.Original_title,
                     Runtime = f.Runtime,
                     Posterpath = f.Posterpath,
-                    Trailerpath = f.Trailerpath
+                    Trailerpath = f.Trailerpath,
+                    Genrelist = GetGenreWithId(f.Id),
+                    Acteurlist = GetActorWithId(f.Id),
+                    Realisateurlist = GetDirectorWithId(f.Id)
+                    
                 }).ToList();
                 return list;
 
@@ -74,7 +78,7 @@ namespace DAL
 
         public List<FilmDTO> GetMoviesByActor(string id)
         {
-            var query = "select Film.* from Film INNER JOIN FilmActor on FilmActor.id_film = Film.id WHERE FilmActor.id = " + id + ";";
+            var query = "select distinct Film.* from Film INNER JOIN FilmActor on FilmActor.id_film = Film.id WHERE FilmActor.id_actor = " + id + ";";
 
             try
             {
@@ -85,7 +89,10 @@ namespace DAL
                     Original_title = f.Original_title,
                     Runtime = f.Runtime,
                     Posterpath = f.Posterpath,
-                    Trailerpath = f.Trailerpath
+                    Trailerpath = f.Trailerpath,
+                    Genrelist = GetGenreWithId(f.Id),
+                    Acteurlist = GetActorWithId(f.Id),
+                    Realisateurlist = GetDirectorWithId(f.Id)
                 }).ToList();
                 return list;
             }catch(Exception e)
@@ -108,7 +115,10 @@ namespace DAL
                     Original_title = f.Original_title,
                     Runtime = f.Runtime,
                     Posterpath = f.Posterpath,
-                    Trailerpath = f.Trailerpath
+                    Trailerpath = f.Trailerpath,
+                    Genrelist = GetGenreWithId(f.Id),
+                    Acteurlist = GetActorWithId(f.Id),
+                    Realisateurlist = GetDirectorWithId(f.Id)
                 }).ToList();
                 return list;
 
@@ -143,7 +153,7 @@ namespace DAL
 
         public List<GenreDTO> GetGenreWithId(int id)
         {
-            var query = "SELECT Genre.* FROM FilmGenre INNER JOIN Genre ON FilmGenre.id_genre = Genre.id WHERE FilmGenre.id_film = " + id + ";";
+            var query = "SELECT distinct Genre.* FROM FilmGenre INNER JOIN Genre ON FilmGenre.id_genre = Genre.id WHERE FilmGenre.id_film = " + id + ";";
             try
             {
                 var list = _context.ExecuteQuery<GenreDTO>(query).Select(g => new GenreDTO
@@ -162,7 +172,7 @@ namespace DAL
 
         public List<ActeurDTO> GetActorWithId(int id)
         {
-            var query = "SELECT Actor.* FROM FilmActor INNER JOIN Actor ON FilmActor.id_actor = Actor.id WHERE FilmActor.id_film = " + id + ";";
+            var query = "SELECT distinct Actor.* FROM FilmActor INNER JOIN Actor ON FilmActor.id_actor = Actor.id WHERE FilmActor.id_film = " + id + ";";
             try
             {
                 var list = _context.ExecuteQuery<ActeurDTO>(query).Select(a => new ActeurDTO
@@ -182,7 +192,7 @@ namespace DAL
 
         public List<RealisateurDTO> GetDirectorWithId(int id)
         {
-            var query = "SELECT Realisateur.* FROM FilmRealisateur INNER JOIN Realisateur ON FilmRealisateur.id_realisateur = Realisateur.id WHERE FilmRealisateur.id_film = " + id + ";";
+            var query = "SELECT distinct Realisateur.* FROM FilmRealisateur INNER JOIN Realisateur ON FilmRealisateur.id_realisateur = Realisateur.id WHERE FilmRealisateur.id_film = " + id + ";";
             try
             {
                 var list = _context.ExecuteQuery<RealisateurDTO>(query).Select(g => new RealisateurDTO

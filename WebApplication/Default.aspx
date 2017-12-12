@@ -17,11 +17,16 @@
         </p>
         <p><asp:TextBox ID="searchTB" runat="server" Height="31px" Width="625px" Font-Italic="True"></asp:TextBox></p>
         <%if (this.listActors.Count != 0)
-          { %>
+            { %>
          <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="343px"></asp:ListBox>
         <%} %>
         <p>&nbsp;</p>
         <asp:Button ID="searchButton" runat="server" Text="Rechercher" OnClick="searchButton_Click" />
+        <p>
+            <br />
+            <asp:Button ID="previousBT" runat="server" Text="Précédents" OnClick="PreviousBT_Click" />
+            <asp:Button ID="nextBT" runat="server" Text="Suivant" OnClick="NextBT_Click" />
+        </p>
 
     </div>
 
@@ -34,8 +39,16 @@
                 <h2 class="title"><%= film.Title %></h2><br / />
                 <p> Titre original : <%=film.Original_title %></p><br />
                 <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
-                <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
-                <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
+                <p>Acteurs : <%foreach (FilmDTOLibrary.ActeurDTO acteur in film.Acteurlist)
+                       { %>
+                        <%=acteur.Name + "(" + acteur.Character + ")" + ", " %>
+                    <%} %>
+                </p><br />
+                <p>Réalisateurs : <%foreach (FilmDTOLibrary.RealisateurDTO real in film.Realisateurlist)
+                       { %>
+                    <%=real.Name + ", " %>
+                    <%} %>
+                </p><br />
 
 
         </div>
@@ -49,10 +62,6 @@
                 forecolor="White"
                 font-bold="true"/> 
             </asp:GridView>
-
-            
-            <asp:Button ID="previousBT" runat="server" Text="Précédent" OnClick="previousBT_Click" />
-            <asp:Button ID="nextBT" runat="server" Text="suivant" OnClick="nextBT_Click" />
         </div>
 
     </div> -->

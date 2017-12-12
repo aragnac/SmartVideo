@@ -17,26 +17,41 @@ namespace WebApplication
         DBFilm filmBLL;
         public List<FilmDTO> listFilms;
         public List<ActeurDTO> listActors;
-        private string idActor;
+        public List<ActeurDTO> listActorsMovie;
+        //private string idActor;
 
         protected void Page_Load(object sender, EventArgs e)
-        { 
-        
-            try
-            {
-                filmBLL = new DBFilm();
-                listFilms = new List<FilmDTO>();
-                listActors = new List<ActeurDTO>();
-                //listFilms = filmBLL.GetFilms("Films", offset);
-                s = new ServiceHostReference.ToolsBDClient();
-                listFilms = s.GetFilms("Film", offset);
-                //MovieGridView.DataSource = s.GetFilms("Film", offset);
-                //MovieGridView.DataBind();
+        {
+            filmBLL = new DBFilm();
+            listFilms = new List<FilmDTO>();
+            listActors = new List<ActeurDTO>();
+
+            ListBox1.SelectedIndexChanged += new EventHandler(ListBox1_SelectedIndexChanged);
+            searchButton.OnClientClick += new EventHandler(searchButton_Click);
+            nextBT.OnClientClick += new EventHandler(NextBT_Click);
+            previousBT.OnClientClick += new EventHandler(PreviousBT_Click);
+
+            s = new ServiceHostReference.ToolsBDClient();
+
+            if (!IsPostBack) { 
+                try
+                {
+                    acteurCB.Checked = false;
+                    filmCB.Checked = false;
+                    Session["offset"] = 1;
+                    Session["idActor"] = "1";
+                    listFilms = s.GetFilms("Film", offset);
+                    ListBox1.DataSource = listActors;
+                    ListBox1.DataBind();
+                    //MovieGridView.DataSource = s.GetFilms("Film", offset);
+                    //MovieGridView.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", ex.Message, true);
+                }
             }
-            catch (Exception ex)
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", ex.Message, true);
-            }
+
         }
 
         protected void MovieGridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,30 +69,47 @@ namespace WebApplication
             }
         }
 
-        protected void nextBT_Click(object sender, EventArgs e)
+        protected void NextBT_Click(object sender, EventArgs e)
         {
-            offset += 20;
+            Session["offset"] = (int)Session["offset"] + 20;
+
+            listFilms = s.GetFilms("Film", (int)Session["offset"]);
+            ListBox1.DataSource = listActors;
+            ListBox1.DataBind();
 
         }
 
-        protected void previousBT_Click(object sender, EventArgs e)
+        protected void PreviousBT_Click(object sender, EventArgs e)
         {
-            if (offset != 0)
-                offset -= 20;
+            if ((int)Session["offset"] != 0)
+                Session["offset"] = (int)Session["offset"] - 20;
+
+            listFilms = s.GetFilms("Film", (int)Session["offset"]);
+            ListBox1.DataSource = listActors;
+            ListBox1.DataBind();
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
-            if (acteurCB.Checked) {
+            if (acteurCB.Checked && !filmCB.Checked) {
                 listActors = s.SearchActors("", searchTB.Text);
+                listFilms = s.GetFilms("Film", (int)Session["offset"]);
                 ListBox1.DataSource = listActors;
                 ListBox1.DataBind();
             }
             else
             {
-                if(filmCB.Checked)
+                if(acteurCB.Checked && filmCB.Checked)
                 {
-                    listFilms = s.GetMoviesByActor(idActor);
+                    listActors = s.SearchActors("", searchTB.Text);
+                    foreach (ActeurDTO acteur in listActors)
+                    {
+                        if (acteur.Name.Equals(searchTB.Text))
+                        {
+                            Session["idActor"] = acteur.Id.ToString();
+                        }
+                    }
+                    listFilms = s.GetMoviesByActor((string)Session["idActor"]);
                 }
                 else 
                     listFilms = s.SearchMovies("Film", searchTB.Text);
@@ -88,13 +120,6 @@ namespace WebApplication
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchTB.Text = ListBox1.SelectedItem.Text;
-            foreach(ActeurDTO acteur in listActors)
-            {
-                if (acteur.Name.Equals(ListBox1.SelectedItem.Text))
-                {
-                    idActor = acteur.Id.ToString();
-                }
-            }
 
         }
     }

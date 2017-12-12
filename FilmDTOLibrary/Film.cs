@@ -13,9 +13,9 @@ namespace FilmDTOLibrary
             // Copyright (c) 2016 All Rights Reserved
             // <author>Cécile Moitroux</author>
             // </copyright>
-       // private List<GenreDTO> genrelist;
-        //private List<RealisateurDTO> realisateurlist;
-        //private List<ActeurDTO> acteurlist;
+       private List<GenreDTO> genrelist;
+       private List<RealisateurDTO> realisateurlist;
+       private List<ActeurDTO> acteurlist;
 
         private int id;
         private string title;
@@ -26,127 +26,73 @@ namespace FilmDTOLibrary
 
         public int Id
         {
-            get
-            {
-                return id;
-            }
+            get{return id;}
 
-            set
-            {
-                id = value;
-            }
+            set{id = value;}
         }
 
         public string Title
         {
-            get
-            {
-                return title;
-            }
+            get{return title;}
 
-            set
-            {
-                title = value;
-            }
+            set{title = value;}
         }
 
         public string Original_title
         {
-            get
-            {
-                return original_title;
-            }
+            get{return original_title;}
 
-            set
-            {
-                original_title = value;
-            }
+            set{original_title = value;}
         }
 
         public int Runtime
         {
-            get
-            {
-                return runtime;
-            }
+            get {return runtime;}
 
-            set
-            {
-                runtime = value;
-            }
+            set{runtime = value;}
         }
 
         public string Posterpath
         {
-            get
-            {
-                return posterpath;
-            }
+            get{return posterpath;}
 
-            set
-            {
-                posterpath = value;
-            }
+            set{posterpath = value;}
         }
 
         public string Trailerpath
         {
-            get
-            {
-                return trailerpath;
-            }
+            get{return trailerpath;}
 
-            set
-            {
-                trailerpath = value;
-            }
+            set{trailerpath = value;}
         }
 
-       /* public List<GenreDTO> Genrelist
+       public List<GenreDTO> Genrelist
         {
-            get
-            {
-                return genrelist;
-            }
+            get{return genrelist;}
 
-            set
-            {
-                genrelist = value;
-            }
+            set{genrelist = value;}
         }
 
         public List<RealisateurDTO> Realisateurlist
         {
-            get
-            {
-                return realisateurlist;
-            }
+            get{return realisateurlist;}
 
-            set
-            {
-                realisateurlist = value;
-            }
+            set{realisateurlist = value;}
         }
 
         public List<ActeurDTO> Acteurlist
         {
-            get
-            {
-                return acteurlist;
-            }
+            get{return acteurlist;}
 
-            set
-            {
-                acteurlist = value;
-            }
-        }*/
+            set{acteurlist = value;}
+        }
 
         // Préparation de la classe pour recevoir les données
         public FilmDTO()
         {
-           /* Genrelist = new List<GenreDTO>();
-            Realisateurlist = new List<RealisateurDTO>();
-            Acteurlist = new List<ActeurDTO>();*/
+           Genrelist = new List<GenreDTO>();
+           Realisateurlist = new List<RealisateurDTO>();
+           Acteurlist = new List<ActeurDTO>();
         }
     }
 
