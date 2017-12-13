@@ -31,9 +31,6 @@ namespace DAL
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnCreated();
-    partial void InsertHit(Hit instance);
-    partial void UpdateHit(Hit instance);
-    partial void DeleteHit(Hit instance);
     partial void InsertLocation(Location instance);
     partial void UpdateLocation(Location instance);
     partial void DeleteLocation(Location instance);
@@ -43,6 +40,9 @@ namespace DAL
     partial void InsertUtilisateur(Utilisateur instance);
     partial void UpdateUtilisateur(Utilisateur instance);
     partial void DeleteUtilisateur(Utilisateur instance);
+    partial void InsertHit(Hit instance);
+    partial void UpdateHit(Hit instance);
+    partial void DeleteHit(Hit instance);
     #endregion
 		
 		public BDSmartVideoDataContext() : 
@@ -75,14 +75,6 @@ namespace DAL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Hit> Hit
-		{
-			get
-			{
-				return this.GetTable<Hit>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Location> Location
 		{
 			get
@@ -106,156 +98,13 @@ namespace DAL
 				return this.GetTable<Utilisateur>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hit")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Hit : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _IdType;
-		
-		private string _TypeData;
-		
-		private System.DateTime _DateHit;
-		
-		private System.Nullable<int> _Hits;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdTypeChanging(string value);
-    partial void OnIdTypeChanged();
-    partial void OnTypeDataChanging(string value);
-    partial void OnTypeDataChanged();
-    partial void OnDateHitChanging(System.DateTime value);
-    partial void OnDateHitChanged();
-    partial void OnHitsChanging(System.Nullable<int> value);
-    partial void OnHitsChanged();
-    #endregion
-		
-		public Hit()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdType", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public string IdType
+		public System.Data.Linq.Table<Hit> Hit
 		{
 			get
 			{
-				return this._IdType;
+				return this.GetTable<Hit>();
 			}
-			set
-			{
-				if ((this._IdType != value))
-				{
-					this.OnIdTypeChanging(value);
-					this.SendPropertyChanging();
-					this._IdType = value;
-					this.SendPropertyChanged("IdType");
-					this.OnIdTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeData", DbType="VarChar(20)")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string TypeData
-		{
-			get
-			{
-				return this._TypeData;
-			}
-			set
-			{
-				if ((this._TypeData != value))
-				{
-					this.OnTypeDataChanging(value);
-					this.SendPropertyChanging();
-					this._TypeData = value;
-					this.SendPropertyChanged("TypeData");
-					this.OnTypeDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateHit", DbType="Date NOT NULL", IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.DateTime DateHit
-		{
-			get
-			{
-				return this._DateHit;
-			}
-			set
-			{
-				if ((this._DateHit != value))
-				{
-					this.OnDateHitChanging(value);
-					this.SendPropertyChanging();
-					this._DateHit = value;
-					this.SendPropertyChanged("DateHit");
-					this.OnDateHitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hits", DbType="Int")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.Nullable<int> Hits
-		{
-			get
-			{
-				return this._Hits;
-			}
-			set
-			{
-				if ((this._Hits != value))
-				{
-					this.OnHitsChanging(value);
-					this.SendPropertyChanging();
-					this._Hits = value;
-					this.SendPropertyChanged("Hits");
-					this.OnHitsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
 		}
 	}
 	
@@ -675,6 +524,157 @@ namespace DAL
 					this._Prenom = value;
 					this.SendPropertyChanged("Prenom");
 					this.OnPrenomChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Hit")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Hit : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdType;
+		
+		private string _TypeData;
+		
+		private System.DateTime _DateHit;
+		
+		private int _Hits;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdTypeChanging(int value);
+    partial void OnIdTypeChanged();
+    partial void OnTypeDataChanging(string value);
+    partial void OnTypeDataChanged();
+    partial void OnDateHitChanging(System.DateTime value);
+    partial void OnDateHitChanged();
+    partial void OnHitsChanging(int value);
+    partial void OnHitsChanged();
+    #endregion
+		
+		public Hit()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdType", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public int IdType
+		{
+			get
+			{
+				return this._IdType;
+			}
+			set
+			{
+				if ((this._IdType != value))
+				{
+					this.OnIdTypeChanging(value);
+					this.SendPropertyChanging();
+					this._IdType = value;
+					this.SendPropertyChanged("IdType");
+					this.OnIdTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeData", DbType="VarChar(25) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public string TypeData
+		{
+			get
+			{
+				return this._TypeData;
+			}
+			set
+			{
+				if ((this._TypeData != value))
+				{
+					this.OnTypeDataChanging(value);
+					this.SendPropertyChanging();
+					this._TypeData = value;
+					this.SendPropertyChanged("TypeData");
+					this.OnTypeDataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateHit", DbType="Date NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.DateTime DateHit
+		{
+			get
+			{
+				return this._DateHit;
+			}
+			set
+			{
+				if ((this._DateHit != value))
+				{
+					this.OnDateHitChanging(value);
+					this.SendPropertyChanging();
+					this._DateHit = value;
+					this.SendPropertyChanged("DateHit");
+					this.OnDateHitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hits", DbType="Int NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public int Hits
+		{
+			get
+			{
+				return this._Hits;
+			}
+			set
+			{
+				if ((this._Hits != value))
+				{
+					this.OnHitsChanging(value);
+					this.SendPropertyChanging();
+					this._Hits = value;
+					this.SendPropertyChanged("Hits");
+					this.OnHitsChanged();
 				}
 			}
 		}

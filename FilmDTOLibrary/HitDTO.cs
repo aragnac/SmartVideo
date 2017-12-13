@@ -8,13 +8,13 @@ namespace FilmDTOLibrary
 {
     public class HitDTO
     {
-        private string _idType;
+        private int _idType;
         private string _typeData;
-        private string _date;
+        private DateTime _date;
         private int _hit;
 
 
-        public string IdType
+        public int IdType
         {
             get
             {
@@ -33,7 +33,7 @@ namespace FilmDTOLibrary
             set{ _typeData = value;}
         }
 
-        public string Date
+        public DateTime Date
         {
             get { return _date; }
             set { _date = value; }
@@ -45,7 +45,7 @@ namespace FilmDTOLibrary
             set { _hit = value; }
         }
 
-        public HitDTO(string idType, string typeData, string date, int hit)
+        public HitDTO(int idType, string typeData, DateTime date, int hit)
         {
             IdType = idType;
             TypeData = typeData;

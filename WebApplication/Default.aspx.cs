@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using FilmDTOLibrary;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,12 @@ namespace WebApplication
 {
     public partial class _Default : Page
     {
-        int offset = 1;
-        ServiceHostReference.ToolsBDClient s;
-        DBFilm filmBLL;
+        private int offset = 1;
+        private ServiceHostReference.ToolsBDClient s;
+        private DBFilm filmBLL;
+        private DBSmartVideo DBstat;
+        private HitDTO hit;
+        // public 
         public List<FilmDTO> listFilms;
         public List<ActeurDTO> listActors;
         public List<ActeurDTO> listActorsMovie;
@@ -23,6 +27,7 @@ namespace WebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             filmBLL = new DBFilm();
+            DBstat = DBSmartVideo.Singleton();
             listFilms = new List<FilmDTO>();
             listActors = new List<ActeurDTO>();
 
@@ -99,7 +104,7 @@ namespace WebApplication
             }
             else
             {
-                if(acteurCB.Checked && filmCB.Checked)
+                if (acteurCB.Checked && filmCB.Checked)
                 {
                     listActors = s.SearchActors("", searchTB.Text);
                     foreach (ActeurDTO acteur in listActors)
@@ -110,9 +115,14 @@ namespace WebApplication
                         }
                     }
                     listFilms = s.GetMoviesByActor((string)Session["idActor"]);
+                    DBstat.InsertOrUpdateHit(new HitDTO(int.Parse((String)Session["idActor"]), "Actor", DateTime.Now, 1));
                 }
-                else 
+                else
+                {
                     listFilms = s.SearchMovies("Film", searchTB.Text);
+                    if(listFilms.Count == 1)
+                        DBstat.InsertOrUpdateHit(new HitDTO((int)listFilms[0].Id, "Film", DateTime.Now, 1));
+                }
             }
 
         }

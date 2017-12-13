@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDSmartVideo" Class="BDSmartVideoDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ARAGNAC;Initial Catalog=BDSmartVideo;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="BDSmartVideoConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Hit" Member="Hit">
-    <Type Name="Hit">
-      <Column Name="IdType" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TypeData" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="DateHit" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Hits" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Location" Member="Location">
     <Type Name="Location">
       <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -30,6 +22,14 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Nom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Prenom" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hit" Member="Hit">
+    <Type Name="Hit">
+      <Column Name="IdType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeData" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateHit" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

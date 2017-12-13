@@ -116,6 +116,37 @@ namespace DAL
             return true;
         }
 
+        public Boolean InsertOrUpdateHit(HitDTO hit)
+        {
+            Hit temp = new Hit();
+
+            temp.IdType = hit.IdType;
+            temp.TypeData = hit.TypeData;
+            temp.DateHit = hit.Date;
+            temp.Hits = hit.Hits;
+
+            //Update a record
+            Hit record = (from h in _context.Hit
+                               where h.IdType == temp.IdType where h.DateHit == temp.DateHit
+                               select h).SingleOrDefault();
+
+            
+            if (record != default(Hit))
+            {
+                record.Hits = record.Hits + 1;
+            }
+            else//Si il n'existe pas on ajoute à la table
+            {
+                _context.Hit.InsertOnSubmit(temp);
+            }
+
+            _context.SubmitChanges();
+
+            _context.SubmitChanges();
+
+            return true;
+        }
+
 
         /* private void UpdateCourse()
          {
