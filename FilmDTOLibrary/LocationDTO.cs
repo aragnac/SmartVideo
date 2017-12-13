@@ -10,8 +10,8 @@ namespace FilmDTOLibrary
     {
         private string _idFilm;
         private string _username;
-        private string _dateDebut;
-        private string _dateFin;
+        private DateTime _dateDebut;
+        private DateTime _dateFin;
 
 
         public string IdFilm
@@ -33,19 +33,19 @@ namespace FilmDTOLibrary
             set { _username = value; }
         }
 
-        public string DateDebut
+        public DateTime DateDebut
         {
             get { return _dateDebut; }
             set { _dateDebut = value; }
         }
 
-        public string DateFin
+        public DateTime DateFin
         {
             get { return _dateFin; }
             set { _dateFin = value; }
         }
 
-        public LocationDTO(string idFilm, string user, string dated, string datef)
+        public LocationDTO(string idFilm, string user, DateTime dated, DateTime datef)
         {
             IdFilm = idFilm;
             Username = user;

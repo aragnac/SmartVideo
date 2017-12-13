@@ -79,7 +79,7 @@ namespace DAL
 
         public List<LocationDTO> getLocation(string username)
         {
-            string query = "SELECT * from Location WHERE Username = "+ username + " AND DATEDIFF( day , "+ DateTime.Now +", DateFin ) >= 0;";
+            string query = "SELECT * from Location WHERE Username = '"+ username + "' ;"; //AND DATEDIFF( day , "+ DateTime.Now +", DateFin ) >= 0
             try
             {
                 List<LocationDTO> list = _context.ExecuteQuery<LocationDTO>(query).Select(l => new LocationDTO

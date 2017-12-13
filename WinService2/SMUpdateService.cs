@@ -50,7 +50,7 @@ namespace WinService2
             {
                 if (pos < 3)
                 {
-                    StatistiquesDTO stat = new StatistiquesDTO(hit.IdType, hit.TypeData, DateTime.Now, pos);
+                    StatistiquesDTO stat = new StatistiquesDTO(hit.IdType.ToString(), hit.TypeData, DateTime.Now, pos);
                     pos++;
                 }
                 else

@@ -16,7 +16,7 @@ namespace WebApplication
         private int offset = 1;
         private ServiceHostReference.ToolsBDClient s;
         private DBSmartVideoBLL DBstat;
-        private HitDTO hit;
+
         // public 
         public List<FilmDTO> listFilms;
         public List<ActeurDTO> listActors;
