@@ -35,31 +35,21 @@
       { %>
         <div class="ticket">
 
-                <img src="http://image.tmdb.org/t/p/w185/<% =film.Posterpath %>" alt="Mountain View" >
-                <h2 class="title"><%= film.Title %></h2><br / />
-                <p> Titre original : <%=film.Original_title %></p><br />
-                <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
-                <%int i = 0; %>
-                <p>Acteurs : <%foreach (FilmDTOLibrary.ActeurDTO acteur in film.Acteurlist)
-                               {
-                                     if (i < 8)
-                                     {%>
-                                        <%=acteur.Name + "(" + acteur.Character + ")" + ", " %>
-                                        <%i++; %>
-                                     <%}
-                               }%>
-                 ...
-                </p><br />
-                <p>Réalisateurs : <%foreach (FilmDTOLibrary.RealisateurDTO real in film.Realisateurlist)
-                       { %>
-                    <%=real.Name + ", " %>
-                    <%} %>
-                </p><br />
-                <p>Genre: <%foreach (FilmDTOLibrary.GenreDTO genre in film.Genrelist)
-                       { %>
-                    <%=genre.Name + ", " %>
-                    <%} %>
-                </p><br />
+            <img src="http://image.tmdb.org/t/p/w185/<% =film.Posterpath %>" alt="Mountain View" >
+            <h2 class="title"><a href="DetailsFilms.aspx?titre=<%= film.Title %>"><%= film.Title %></a></h2><br / />
+            <p> Titre original : <%=film.Original_title %></p><br />
+            <p>Durée du film : <%= film.Runtime %> minutes.</p><br />
+            <%int i = 0; %>
+            <p>Acteurs : <%foreach (FilmDTOLibrary.ActeurDTO acteur in film.Acteurlist)
+                            {
+                                    if (i < 12)
+                                    {%>
+                                    <%=acteur.Name + "(" + acteur.Character + ")" + ", " %>
+                                    <%i++; %>
+                                    <%}
+                            }%>
+                ...
+            </p><br />
 
         </div>
     <%} %>

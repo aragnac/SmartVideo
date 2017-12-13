@@ -15,7 +15,6 @@ namespace WebApplication
     {
         private int offset = 1;
         private ServiceHostReference.ToolsBDClient s;
-        private DBFilm filmBLL;
         private DBSmartVideo DBstat;
         private HitDTO hit;
         // public 
@@ -26,7 +25,6 @@ namespace WebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            filmBLL = new DBFilm();
             DBstat = DBSmartVideo.Singleton();
             listFilms = new List<FilmDTO>();
             listActors = new List<ActeurDTO>();
@@ -96,7 +94,8 @@ namespace WebApplication
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
-            if (acteurCB.Checked && !filmCB.Checked) {
+            if (acteurCB.Checked && !filmCB.Checked)
+            {
                 listActors = s.SearchActors("", searchTB.Text);
                 listFilms = s.GetFilms("Film", (int)Session["offset"]);
                 ListBox1.DataSource = listActors;
@@ -120,7 +119,7 @@ namespace WebApplication
                 else
                 {
                     listFilms = s.SearchMovies("Film", searchTB.Text);
-                    if(listFilms.Count == 1)
+                    if (listFilms.Count == 1)
                         DBstat.InsertOrUpdateHit(new HitDTO((int)listFilms[0].Id, "Film", DateTime.Now, 1));
                 }
             }
