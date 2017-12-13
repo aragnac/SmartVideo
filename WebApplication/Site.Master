@@ -57,9 +57,11 @@
                         <li><a runat="server" href="~/">Accueil</a></li>
                         <li><a runat="server" href="~/About">À propos de</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/Tops">Les Tops</a></li>
 
                         <%if ((bool)Session["connected"])
                             { %>
+                            <li id="location"><a runat="server"  href="~/Locations">Mes locations</a></li>
                             <li id="user"><a runat="server">connecté :<% = (string)Session["user"] %></a></li>
                             <li id="logout"><a runat="server"  class="cd-signup nav-menu" onserverclick="LogoutBtn_Click">Déconnexion</a></li>
                         <%} else { %>

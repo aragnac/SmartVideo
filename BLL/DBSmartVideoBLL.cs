@@ -26,5 +26,31 @@ namespace BLL
         {
             return database.GetUtilisateur();
         }
+
+        public List<LocationDTO> getLocation(string username)
+        {
+            return database.getLocation( username);
+        }
+
+        public List<HitDTO> GetHits()
+        {
+            return database.GetHits();   
+        }
+
+        public Boolean AddStatistiques(StatistiquesDTO stat)
+        {
+            if(database.AddStatistiques(stat))
+                return true;
+            else
+                return false;
+        }
+
+        public Boolean InsertOrUpdateHit(HitDTO hit)
+        {
+            if (database.InsertOrUpdateHit(hit))
+                return true;
+            else
+                return false;
+        }
     }
 }

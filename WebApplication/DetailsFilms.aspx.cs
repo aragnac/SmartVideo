@@ -34,7 +34,7 @@ namespace WebApplication
             //string VideoID = "nQJACVmankY";
 
             // Here this code you show in the label the YouTube Video that you put the code
-            LabelShowYouTubeVideo.Text = "<object width='425' height='355'><param name='movie' value='http://www.youtube.com/v/" + VideoID + "'></param><param name='wmode' value='transparent'></param><embed src='http://www.youtube.com/v/" + VideoID + "' type='application/x-shockwave-flash' wmode='transparent' width='425' height='355'></embed></object>";
+            LabelShowYouTubeVideo.Text = "<object width='425' height='355'><param name='movie' value='http://www.youtube.com/v/" + VideoID + "'></param><param name='wmode' value='transparent'></param><embed src='http://www.youtube.com/v/" + VideoID + "' type='application/x-shockwave-flash' wmode='transparent' width='650' height='355'></embed></object>";
 
         }
     }

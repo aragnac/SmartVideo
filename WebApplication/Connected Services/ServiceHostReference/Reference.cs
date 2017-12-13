@@ -38,6 +38,12 @@ namespace WebApplication.ServiceHostReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/SearchActors", ReplyAction="http://tempuri.org/IToolsBD/SearchActorsResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<FilmDTOLibrary.ActeurDTO>> SearchActorsAsync(string table, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetFilmById", ReplyAction="http://tempuri.org/IToolsBD/GetFilmByIdResponse")]
+        System.Collections.Generic.List<FilmDTOLibrary.FilmDTO> GetFilmById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetFilmById", ReplyAction="http://tempuri.org/IToolsBD/GetFilmByIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<FilmDTOLibrary.FilmDTO>> GetFilmByIdAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace WebApplication.ServiceHostReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<FilmDTOLibrary.ActeurDTO>> SearchActorsAsync(string table, string search) {
             return base.Channel.SearchActorsAsync(table, search);
+        }
+        
+        public System.Collections.Generic.List<FilmDTOLibrary.FilmDTO> GetFilmById(int id) {
+            return base.Channel.GetFilmById(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<FilmDTOLibrary.FilmDTO>> GetFilmByIdAsync(int id) {
+            return base.Channel.GetFilmByIdAsync(id);
         }
     }
 }

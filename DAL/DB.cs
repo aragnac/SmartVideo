@@ -76,6 +76,34 @@ namespace DAL
             }
         }
 
+        public List<FilmDTO> GetFilmById(int id)
+        {
+            var query = "SELECT * FROM Film WHERE id = "+ id +";";
+            try
+            {
+                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Select(f => new FilmDTO
+                {
+                    Id = f.Id,
+                    Title = f.Title,
+                    Original_title = f.Original_title,
+                    Runtime = f.Runtime,
+                    Posterpath = f.Posterpath,
+                    Trailerpath = f.Trailerpath,
+                    Genrelist = GetGenreWithId(f.Id),
+                    Acteurlist = GetActorWithId(f.Id),
+                    Realisateurlist = GetDirectorWithId(f.Id)
+
+                }).ToList();
+                return list;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<FilmDTO>();
+            }
+        }
+
         public List<FilmDTO> GetMoviesByActor(string id)
         {
             var query = "select distinct Film.* from Film INNER JOIN FilmActor on FilmActor.id_film = Film.id WHERE FilmActor.id_actor = " + id + ";";

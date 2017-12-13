@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmDTOLibrary
 {
-    class LocationDTO
+    public class LocationDTO
     {
         private string _idFilm;
         private string _username;

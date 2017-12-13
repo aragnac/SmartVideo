@@ -24,5 +24,8 @@ namespace WCFLibrary
 
         [OperationContract]
         List<ActeurDTO> SearchActors(string table, string search);
+
+        [OperationContract]
+        List<FilmDTO> GetFilmById(int id);
     }
 }

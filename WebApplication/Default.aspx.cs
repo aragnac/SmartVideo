@@ -15,7 +15,7 @@ namespace WebApplication
     {
         private int offset = 1;
         private ServiceHostReference.ToolsBDClient s;
-        private DBSmartVideo DBstat;
+        private DBSmartVideoBLL DBstat;
         private HitDTO hit;
         // public 
         public List<FilmDTO> listFilms;
@@ -25,7 +25,7 @@ namespace WebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBstat = DBSmartVideo.Singleton();
+            DBstat = new DBSmartVideoBLL();
             listFilms = new List<FilmDTO>();
             listActors = new List<ActeurDTO>();
 

@@ -33,5 +33,10 @@ namespace WCFLibrary
         {
             return filmBLL.SearchActors(table, search);
         }
+
+        public List<FilmDTO> GetFilmById(int id)
+        {
+            return filmBLL.GetFilmById(id);
+        }
     }
 }

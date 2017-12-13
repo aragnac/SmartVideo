@@ -58,7 +58,7 @@ namespace DAL
 
         public List<UtilisateurDTO> GetUtilisateur()
         {
-            var query = "SELECT * from Utilisateur;";
+            string query = "SELECT * from Utilisateur;";
             try
             {
                 List<UtilisateurDTO> list = _context.ExecuteQuery<UtilisateurDTO>(query).Select(u => new UtilisateurDTO
@@ -74,6 +74,27 @@ namespace DAL
             {
                 Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
                 return new List<UtilisateurDTO>();
+            }
+        }
+
+        public List<LocationDTO> getLocation(string username)
+        {
+            string query = "SELECT * from Location WHERE Username = "+ username + " AND DATEDIFF( day , "+ DateTime.Now +", DateFin ) >= 0;";
+            try
+            {
+                List<LocationDTO> list = _context.ExecuteQuery<LocationDTO>(query).Select(l => new LocationDTO
+                {
+                    Username = l.Username,
+                    IdFilm = l.IdFilm,
+                    DateDebut = l.DateDebut,
+                    DateFin = l.DateFin
+                }).ToList();
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<LocationDTO>();
             }
         }
 
@@ -146,18 +167,6 @@ namespace DAL
 
             return true;
         }
-
-
-        /* private void UpdateCourse()
-         {
-             OperationDataContext OdContext = new OperationDataContext();
-             //Get Single course which need to update
-             COURSE objCourse = OdContext.COURSEs.Single(course => course.course_name == "B.Tech");
-             //Field which will be update
-             objCourse.course_desc = "Bachelor of Technology";
-             // executes the appropriate commands to implement the changes to the database
-             OdContext.SubmitChanges();
-         }*/
 
     }
 }
