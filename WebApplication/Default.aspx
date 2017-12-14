@@ -8,6 +8,11 @@
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
+        <%if (!this.Load && this.listActors.Count == 0)
+          {%>
+            <div class="info">Aucun acteurs trouvés.</div>
+        <%} %>
+    
     <div class="ticket" >
         <h4 class ="mainTitle">Rechercher un Film :</h4>
         
@@ -17,9 +22,10 @@
         </p>
         <p><asp:TextBox ID="searchTB" runat="server" Height="31px" Width="625px" Font-Italic="True"></asp:TextBox></p>
         <%if (this.listActors.Count != 0)
-            { %>
-         <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="343px"></asp:ListBox>
-        <%} %>
+          { %>
+            <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="343px"></asp:ListBox>
+        <%}%>
+
         <p>&nbsp;</p>
         <asp:Button ID="searchButton" runat="server" Text="Rechercher" OnClick="searchButton_Click" />
         <p>

@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BDSmartVideo" Class="BDSmartVideoDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ARAGNAC;Initial Catalog=BDSmartVideo;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="BDSmartVideoConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Location" Member="Location">
-    <Type Name="Location">
-      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdFilm" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Statistiques" Member="Statistiques">
     <Type Name="Statistiques">
       <Column Name="IdType" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -30,6 +22,14 @@
       <Column Name="TypeData" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DateHit" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Hits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Location" Member="Location">
+    <Type Name="Location">
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdFilm" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateDebut" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateFin" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

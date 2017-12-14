@@ -8,6 +8,9 @@
 
     <div class="row">
         <div class ="col-md-4">
+            <%if ((bool)Session["connected"]){ %>
+            <div class="success">Connexion réussie!</div>
+            <%} %>
             <asp:Login ID="LoginForm" runat="server" OnAuthenticate="LoginForm_Authenticate">
             </asp:Login>
         </div>

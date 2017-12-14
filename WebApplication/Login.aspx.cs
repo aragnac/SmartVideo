@@ -32,7 +32,7 @@ namespace WebApplication
                     {
                         Session["connected"] = true;
                         Session["user"] = LoginForm.UserName;
-                        Response.Write("<script>alert('Connecté !');</script>");
+                        //Response.Write("<script>alert('Connecté !');</script>");
                     }
                     else
                     {

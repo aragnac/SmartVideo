@@ -31,9 +31,6 @@ namespace DAL
 		
     #region Définitions de méthodes d'extensibilité
     partial void OnCreated();
-    partial void InsertLocation(Location instance);
-    partial void UpdateLocation(Location instance);
-    partial void DeleteLocation(Location instance);
     partial void InsertStatistiques(Statistiques instance);
     partial void UpdateStatistiques(Statistiques instance);
     partial void DeleteStatistiques(Statistiques instance);
@@ -43,6 +40,9 @@ namespace DAL
     partial void InsertHit(Hit instance);
     partial void UpdateHit(Hit instance);
     partial void DeleteHit(Hit instance);
+    partial void InsertLocation(Location instance);
+    partial void UpdateLocation(Location instance);
+    partial void DeleteLocation(Location instance);
     #endregion
 		
 		public BDSmartVideoDataContext() : 
@@ -75,14 +75,6 @@ namespace DAL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Location> Location
-		{
-			get
-			{
-				return this.GetTable<Location>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Statistiques> Statistiques
 		{
 			get
@@ -106,156 +98,13 @@ namespace DAL
 				return this.GetTable<Hit>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Location")]
-	[global::System.Runtime.Serialization.DataContractAttribute()]
-	public partial class Location : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Username;
-		
-		private string _IdFilm;
-		
-		private System.DateTime _DateDebut;
-		
-		private System.DateTime _DateFin;
-		
-    #region Définitions de méthodes d'extensibilité
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnIdFilmChanging(string value);
-    partial void OnIdFilmChanged();
-    partial void OnDateDebutChanging(System.DateTime value);
-    partial void OnDateDebutChanged();
-    partial void OnDateFinChanging(System.DateTime value);
-    partial void OnDateFinChanged();
-    #endregion
-		
-		public Location()
-		{
-			this.Initialize();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-		public string Username
+		public System.Data.Linq.Table<Location> Location
 		{
 			get
 			{
-				return this._Username;
+				return this.GetTable<Location>();
 			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFilm", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-		public string IdFilm
-		{
-			get
-			{
-				return this._IdFilm;
-			}
-			set
-			{
-				if ((this._IdFilm != value))
-				{
-					this.OnIdFilmChanging(value);
-					this.SendPropertyChanging();
-					this._IdFilm = value;
-					this.SendPropertyChanged("IdFilm");
-					this.OnIdFilmChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDebut", DbType="Date NOT NULL", IsPrimaryKey=true)]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-		public System.DateTime DateDebut
-		{
-			get
-			{
-				return this._DateDebut;
-			}
-			set
-			{
-				if ((this._DateDebut != value))
-				{
-					this.OnDateDebutChanging(value);
-					this.SendPropertyChanging();
-					this._DateDebut = value;
-					this.SendPropertyChanged("DateDebut");
-					this.OnDateDebutChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFin", DbType="Date NOT NULL")]
-		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-		public System.DateTime DateFin
-		{
-			get
-			{
-				return this._DateFin;
-			}
-			set
-			{
-				if ((this._DateFin != value))
-				{
-					this.OnDateFinChanging(value);
-					this.SendPropertyChanging();
-					this._DateFin = value;
-					this.SendPropertyChanged("DateFin");
-					this.OnDateFinChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void Initialize()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
-		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
-		public void OnDeserializing(StreamingContext context)
-		{
-			this.Initialize();
 		}
 	}
 	
@@ -675,6 +524,157 @@ namespace DAL
 					this._Hits = value;
 					this.SendPropertyChanged("Hits");
 					this.OnHitsChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void Initialize()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Location")]
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+	public partial class Location : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Username;
+		
+		private int _IdFilm;
+		
+		private System.DateTime _DateDebut;
+		
+		private System.DateTime _DateFin;
+		
+    #region Définitions de méthodes d'extensibilité
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnIdFilmChanging(int value);
+    partial void OnIdFilmChanged();
+    partial void OnDateDebutChanging(System.DateTime value);
+    partial void OnDateDebutChanged();
+    partial void OnDateFinChanging(System.DateTime value);
+    partial void OnDateFinChanged();
+    #endregion
+		
+		public Location()
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdFilm", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+		public int IdFilm
+		{
+			get
+			{
+				return this._IdFilm;
+			}
+			set
+			{
+				if ((this._IdFilm != value))
+				{
+					this.OnIdFilmChanging(value);
+					this.SendPropertyChanging();
+					this._IdFilm = value;
+					this.SendPropertyChanged("IdFilm");
+					this.OnIdFilmChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDebut", DbType="Date NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+		public System.DateTime DateDebut
+		{
+			get
+			{
+				return this._DateDebut;
+			}
+			set
+			{
+				if ((this._DateDebut != value))
+				{
+					this.OnDateDebutChanging(value);
+					this.SendPropertyChanging();
+					this._DateDebut = value;
+					this.SendPropertyChanged("DateDebut");
+					this.OnDateDebutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateFin", DbType="Date NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+		public System.DateTime DateFin
+		{
+			get
+			{
+				return this._DateFin;
+			}
+			set
+			{
+				if ((this._DateFin != value))
+				{
+					this.OnDateFinChanging(value);
+					this.SendPropertyChanging();
+					this._DateFin = value;
+					this.SendPropertyChanged("DateFin");
+					this.OnDateFinChanged();
 				}
 			}
 		}

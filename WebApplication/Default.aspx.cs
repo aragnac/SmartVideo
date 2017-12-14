@@ -21,6 +21,7 @@ namespace WebApplication
         public List<FilmDTO> listFilms;
         public List<ActeurDTO> listActors;
         public List<ActeurDTO> listActorsMovie;
+        public static bool load;
         //private string idActor;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace WebApplication
                 {
                     acteurCB.Checked = false;
                     filmCB.Checked = false;
+                    load = true;
                     Session["offset"] = 1;
                     Session["idActor"] = "1";
                     listFilms = s.GetFilms("Film", offset);
@@ -94,6 +96,7 @@ namespace WebApplication
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
+            load = false;
             if (acteurCB.Checked && !filmCB.Checked)
             {
                 listActors = s.SearchActors("", searchTB.Text);
@@ -130,6 +133,11 @@ namespace WebApplication
         {
             searchTB.Text = ListBox1.SelectedItem.Text;
 
+        }
+
+        public bool Load
+        {
+            get { return load; }
         }
     }
 }

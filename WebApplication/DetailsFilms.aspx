@@ -9,7 +9,17 @@
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>   
     
-    <%foreach (FilmDTOLibrary.FilmDTO film in this.listFilms)
+    <%switch(this.ERROR) { %>
+        <% case 1: %> <div class="info">Veuillez vous connecter afin de pouvoir louer ce film.</div>
+        <%break; %>
+        <%case 2: %>  <div class="warning">Ce film est deja en cours de location.</div>
+        <%break; %>
+        <%case 3: %> <div class="success">Film ajouté à vos locations avec succès !</div>
+        <%break; %>
+
+    <% } %>
+
+    <%foreach (FilmDTOLibrary.FilmDTO film in this.getListFilms)
       { %>
         <div class="ticket">
 
@@ -40,7 +50,21 @@
             </p><br />
             <!--<iframe width="560" height="315" src="<%=film.Trailerpath %>" runat="server" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>-->
             <div style="text-align:center">
-            <asp:Label ID="LabelShowYouTubeVideo" runat="server"></asp:Label>
+                <%if (film.Trailerpath == null)
+                    { %>
+                <div class="info">Le trailer pour ce film n'est pas disponible.</div>
+                <%}
+                else
+                { %>
+                <asp:Label ID="LabelShowYouTubeVideo" runat="server"></asp:Label>
+                <%} %>
+                <br />
+            </div>
+
+            <div style="text-align:center">
+                
+                <asp:Button ID="locationBT" runat="server" Text="Louer ce film!" OnClick="locationBT_Click" />
+            
             </div>
 
         </div>

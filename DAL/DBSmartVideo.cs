@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -137,6 +138,48 @@ namespace DAL
             return true;
         }
 
+        public Boolean InsertLocation(LocationDTO location)
+        {
+            //Data maping object to our database
+            Location temp = new Location();
+            temp.IdFilm = location.IdFilm;
+            temp.Username = location.Username;
+            temp.DateDebut = location.DateDebut;
+            temp.DateFin = location.DateFin;
+
+            try
+            {
+                //get record
+                Location record = (from l in _context.Location
+                              where l.Username == temp.Username
+                              where l.IdFilm == temp.IdFilm
+                              where l.DateFin != DateTime.Now
+                              select l).SingleOrDefault(); //where l.DateFin != DateTime.Now
+
+
+                if (record != default(Location))
+                {
+                    return false;
+                }
+                else//Si il n'existe pas on ajoute à la table
+                {
+                    _context.Location.InsertOnSubmit(temp);
+                }
+
+                //Adds an entity in a pending insert state to this System.Data.Linq.Table<TEntity>and parameter is the entity which to be added
+                _context.Location.InsertOnSubmit(temp);
+                // executes the appropriate commands to implement the changes to the database
+                _context.SubmitChanges();
+            }catch(SqlException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+
+            return true;
+
+        }
+
         public Boolean InsertOrUpdateHit(HitDTO hit)
         {
             Hit temp = new Hit();
@@ -160,8 +203,6 @@ namespace DAL
             {
                 _context.Hit.InsertOnSubmit(temp);
             }
-
-            _context.SubmitChanges();
 
             _context.SubmitChanges();
 

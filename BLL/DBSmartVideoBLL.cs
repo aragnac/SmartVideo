@@ -45,6 +45,16 @@ namespace BLL
                 return false;
         }
 
+        public Boolean InsertLocation(LocationDTO location)
+        {
+            //calcul de la date de fin 
+            location.DateFin = location.DateDebut.AddMonths(3);
+            if (database.InsertLocation(location))
+                return true;
+            else
+                return false;
+        }
+
         public Boolean InsertOrUpdateHit(HitDTO hit)
         {
             if (database.InsertOrUpdateHit(hit))
