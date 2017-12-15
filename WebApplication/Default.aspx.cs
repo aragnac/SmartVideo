@@ -109,6 +109,7 @@ namespace WebApplication
                 if (acteurCB.Checked && filmCB.Checked)
                 {
                     listActors = s.SearchActors("", searchTB.Text);
+                    load = true;
                     foreach (ActeurDTO acteur in listActors)
                     {
                         if (acteur.Name.Equals(searchTB.Text))
