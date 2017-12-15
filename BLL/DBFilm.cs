@@ -30,6 +30,11 @@ namespace BLL
             return database.GetActorWithId(id);
         }
 
+        public List<ActeurDTO> GetActorById(int id)
+        {
+            return database.GetActorById(id);
+        }
+
         public List<RealisateurDTO> GetDirectorWithId(int id)
         {
             return database.GetDirectorWithId(id);

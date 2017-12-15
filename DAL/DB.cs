@@ -218,6 +218,26 @@ namespace DAL
             }
         }
 
+        public List<ActeurDTO> GetActorById(int id)
+        {
+            var query = "SELECT distinct * FROM Actor WHERE id =" + id + ";";
+            try
+            {
+                var list = _context.ExecuteQuery<ActeurDTO>(query).Select(a => new ActeurDTO
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    Character = a.Character
+                }).ToList();
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<ActeurDTO>();
+            }
+        }
+
         public List<RealisateurDTO> GetDirectorWithId(int id)
         {
             var query = "SELECT distinct Realisateur.* FROM FilmRealisateur INNER JOIN Realisateur ON FilmRealisateur.id_realisateur = Realisateur.id WHERE FilmRealisateur.id_film = " + id + ";";

@@ -37,6 +37,11 @@ namespace BLL
             return database.GetHits();   
         }
 
+        public List<StatistiquesDTO> GetStatistiques(DateTime date)
+        {
+            return database.GetStatistiques(date);
+        }
+
         public Boolean AddStatistiques(StatistiquesDTO stat)
         {
             if(database.AddStatistiques(stat))
