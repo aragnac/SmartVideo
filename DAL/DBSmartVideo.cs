@@ -120,6 +120,27 @@ namespace DAL
             }
         }
 
+        public List<StatistiquesDTO> GetStatistiques(DateTime date)
+        {
+            var query = "select * from Statistiques where DateStat = ('" + date.ToString("yyyy-MM-dd") + "') order by TypeData, Position;";
+            try
+            {
+                List<StatistiquesDTO> list = _context.ExecuteQuery<StatistiquesDTO>(query).Select(s => new StatistiquesDTO
+                {
+                    IdType = s.IdType,
+                    TypeData = s.TypeData,
+                    DateStat = s.DateStat,
+                    Position = s.Position
+                }).ToList();
+                return list;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
+                return new List<StatistiquesDTO>();
+            }
+        }
+
         public Boolean AddStatistiques(StatistiquesDTO stat)
         {
 
