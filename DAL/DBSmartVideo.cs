@@ -101,7 +101,7 @@ namespace DAL
 
         public List<HitDTO> GetHits()
         {
-            var query = "select * from Hit order by Hits;";
+            var query = "select * from Hit where DateHit = ('" + DateTime.Now.Date.ToString("yyyy-MM-dd") +"') order by Hits desc;";
             try
             {
                 List<HitDTO> list = _context.ExecuteQuery<HitDTO>(query).Select(h => new HitDTO

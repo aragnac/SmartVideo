@@ -44,17 +44,25 @@ namespace WinService2
         public void OnTimer(object sender, ElapsedEventArgs args)
         {
             List<HitDTO> listHit = _bdSmartVideo.GetHits();
-            int pos = 0;
+            int posActor = 0;
+            int posFilm = 0;
 
             foreach(HitDTO hit in listHit)
             {
-                if (pos < 3)
+                if (hit.TypeData.Equals("Actor") && posActor < 3)
                 {
-                    StatistiquesDTO stat = new StatistiquesDTO(hit.IdType.ToString(), hit.TypeData, DateTime.Now, pos);
-                    pos++;
+                    posActor++;
+                    _bdSmartVideo.AddStatistiques(new StatistiquesDTO(hit.IdType.ToString(), hit.TypeData, DateTime.Now, posActor));
                 }
                 else
-                    break;
+                {
+                    if (posFilm < 3)
+                    {
+                        posFilm++;
+                        _bdSmartVideo.AddStatistiques(new StatistiquesDTO(hit.IdType.ToString(), hit.TypeData, DateTime.Now, posFilm));
+                    }
+                }   
+
             }
             EventLog.WriteEntry("Statistiques mis à jour.", EventLogEntryType.Information);
 
