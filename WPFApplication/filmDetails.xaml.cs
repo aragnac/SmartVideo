@@ -16,10 +16,10 @@ namespace WPFApplication
     //Lien vers les poster des film : http://image.tmdb.org/t/p/w185/gZCJZOn4l0Zj5hAxsMbxoS6CL0u.jpg
     public partial class filmDetails : Window
     {
-        DBFilm filmBLL;
-        int idFilm;
-        string filmTitle;
-        string trailerPath;
+        private DBFilm filmBLL;
+        private int idFilm;
+        private string filmTitle;
+        private string trailerPath;
 
         public filmDetails()
         {
@@ -104,13 +104,13 @@ namespace WPFApplication
 
         private void ajoutTrailer_Click(object sender, RoutedEventArgs e)
         {
-            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle);
+            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle, idFilm);
             ajouttrailer.ShowDialog();
         }
 
         private void modifierTrailer_Click(object sender, RoutedEventArgs e)
         {
-            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle, trailerPath);
+            AjoutTrailer ajouttrailer = new AjoutTrailer(filmTitle, idFilm,trailerPath);
             ajouttrailer.ShowDialog();
         }
     }

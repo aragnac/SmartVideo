@@ -7,6 +7,7 @@ using FilmDTOLibrary;
 using System.Collections.Generic;
 using System;
 using WPFApplication.ServiceHostReference;
+using System.ServiceModel;
 
 namespace WPFApplication
 {
@@ -22,6 +23,7 @@ namespace WPFApplication
         public MainWindow()
         {
             InitializeComponent();
+
             s = null;
             try
             {
@@ -39,13 +41,13 @@ namespace WPFApplication
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
             if (offset != 0)
-                offset -= 20;
+                offset -= 10;
             ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            offset += 20;
+            offset += 10;
             ResultDataGrid.ItemsSource = s.GetFilms("Film", offset);
         }
 

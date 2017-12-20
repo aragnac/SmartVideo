@@ -27,5 +27,8 @@ namespace WCFLibrary
 
         [OperationContract]
         List<FilmDTO> GetFilmById(int id);
+
+        [OperationContract]
+        Boolean InsertTrailer(string trailer, int id);
     }
 }

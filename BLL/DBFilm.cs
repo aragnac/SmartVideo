@@ -3,6 +3,7 @@ using DAL;
 using FilmDTOLibrary;
 using System.Collections.Generic;
 using System.Windows;
+using System;
 
 namespace BLL
 {
@@ -60,10 +61,13 @@ namespace BLL
             return database.SearchActors(table, search);
         }
 
-        /*public bool addTrailer(string trailerPath)
+        public Boolean InsertTrailer(string trailer, int id)
         {
-            return database.addTrailer;
-        }*/
+            if (database.InsertTrailer(trailer, id))
+                return true;
+            else
+                return false;
+        }
 
     }
 }

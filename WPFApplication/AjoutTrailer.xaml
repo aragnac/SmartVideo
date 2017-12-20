@@ -9,7 +9,7 @@
     <Grid>
         <Label x:Name="filmLabel" Content="Ajouter un trailer pour le film :" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.784,-0.616"/>
         <TextBox x:Name="trailerTextBox" HorizontalAlignment="Left" Height="23" Margin="10,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272"/>
-        <Button x:Name="addButton" Content="Button" Click="addButton_Click" HorizontalAlignment="Left" Margin="105,123,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="addButton" Content="Ajouter" Click="addButton_Click" HorizontalAlignment="Left" Margin="105,123,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

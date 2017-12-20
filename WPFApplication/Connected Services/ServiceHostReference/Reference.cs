@@ -20,6 +20,36 @@ namespace WPFApplication.ServiceHostReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetFilms", ReplyAction="http://tempuri.org/IToolsBD/GetFilmsResponse")]
         System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetFilmsAsync(string table, int start);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/SearchMovies", ReplyAction="http://tempuri.org/IToolsBD/SearchMoviesResponse")]
+        FilmDTOLibrary.FilmDTO[] SearchMovies(string table, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/SearchMovies", ReplyAction="http://tempuri.org/IToolsBD/SearchMoviesResponse")]
+        System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> SearchMoviesAsync(string table, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetMoviesByActor", ReplyAction="http://tempuri.org/IToolsBD/GetMoviesByActorResponse")]
+        FilmDTOLibrary.FilmDTO[] GetMoviesByActor(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetMoviesByActor", ReplyAction="http://tempuri.org/IToolsBD/GetMoviesByActorResponse")]
+        System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetMoviesByActorAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/SearchActors", ReplyAction="http://tempuri.org/IToolsBD/SearchActorsResponse")]
+        FilmDTOLibrary.ActeurDTO[] SearchActors(string table, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/SearchActors", ReplyAction="http://tempuri.org/IToolsBD/SearchActorsResponse")]
+        System.Threading.Tasks.Task<FilmDTOLibrary.ActeurDTO[]> SearchActorsAsync(string table, string search);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetFilmById", ReplyAction="http://tempuri.org/IToolsBD/GetFilmByIdResponse")]
+        FilmDTOLibrary.FilmDTO[] GetFilmById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/GetFilmById", ReplyAction="http://tempuri.org/IToolsBD/GetFilmByIdResponse")]
+        System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetFilmByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/InsertTrailer", ReplyAction="http://tempuri.org/IToolsBD/InsertTrailerResponse")]
+        bool InsertTrailer(string trailer, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IToolsBD/InsertTrailer", ReplyAction="http://tempuri.org/IToolsBD/InsertTrailerResponse")]
+        System.Threading.Tasks.Task<bool> InsertTrailerAsync(string trailer, int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +85,46 @@ namespace WPFApplication.ServiceHostReference {
         
         public System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetFilmsAsync(string table, int start) {
             return base.Channel.GetFilmsAsync(table, start);
+        }
+        
+        public FilmDTOLibrary.FilmDTO[] SearchMovies(string table, string search) {
+            return base.Channel.SearchMovies(table, search);
+        }
+        
+        public System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> SearchMoviesAsync(string table, string search) {
+            return base.Channel.SearchMoviesAsync(table, search);
+        }
+        
+        public FilmDTOLibrary.FilmDTO[] GetMoviesByActor(string id) {
+            return base.Channel.GetMoviesByActor(id);
+        }
+        
+        public System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetMoviesByActorAsync(string id) {
+            return base.Channel.GetMoviesByActorAsync(id);
+        }
+        
+        public FilmDTOLibrary.ActeurDTO[] SearchActors(string table, string search) {
+            return base.Channel.SearchActors(table, search);
+        }
+        
+        public System.Threading.Tasks.Task<FilmDTOLibrary.ActeurDTO[]> SearchActorsAsync(string table, string search) {
+            return base.Channel.SearchActorsAsync(table, search);
+        }
+        
+        public FilmDTOLibrary.FilmDTO[] GetFilmById(int id) {
+            return base.Channel.GetFilmById(id);
+        }
+        
+        public System.Threading.Tasks.Task<FilmDTOLibrary.FilmDTO[]> GetFilmByIdAsync(int id) {
+            return base.Channel.GetFilmByIdAsync(id);
+        }
+        
+        public bool InsertTrailer(string trailer, int id) {
+            return base.Channel.InsertTrailer(trailer, id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertTrailerAsync(string trailer, int id) {
+            return base.Channel.InsertTrailerAsync(trailer, id);
         }
     }
 }

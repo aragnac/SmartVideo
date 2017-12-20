@@ -53,7 +53,7 @@ namespace DAL
             var query = "SELECT * FROM "+ table + ";";
             try
             {
-                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Skip(start).Take(20).Select(f => new FilmDTO
+                List<FilmDTO> list = _context.ExecuteQuery<FilmDTO>(query).Skip(start).Take(10).Select(f => new FilmDTO
                 {
                     Id = f.Id,
                     Title = f.Title,
@@ -256,6 +256,26 @@ namespace DAL
                 Console.WriteLine(e.Message + " impossible d'afficher les résultats.");
                 return new List<RealisateurDTO>();
             }
+        }
+
+        public Boolean InsertTrailer(string trailer, int id)
+        {
+            //UPDATE Film SET trailerpath = 'https://www.youtube.com/watch?v=8dxh3lwdOFw' WHERE id = 15;
+
+            //Update a record
+            Film record = (from f in _context.Film
+                           where f.id == id
+                          select f).SingleOrDefault();
+
+
+            if (record != default(Film))
+            {
+                record.trailerpath = trailer;
+            }
+
+            _context.SubmitChanges();
+
+            return true;
         }
     }
 }

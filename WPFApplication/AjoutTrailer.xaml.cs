@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPFApplication.ServiceHostReference;
 
 namespace WPFApplication
 {
@@ -19,17 +20,22 @@ namespace WPFApplication
     /// </summary>
     public partial class AjoutTrailer : Window
     {
-        String _trailer = "";
-        string _titre = "";
+        private string _trailer = "";
+        private string _titre = "";
+        private int _id;
+
+        ToolsBDClient s;
 
         public AjoutTrailer()
         {
             InitializeComponent();
         }
 
-        public AjoutTrailer(String titre, String trailer = "")
+        public AjoutTrailer(String titre, int id, String trailer = "")
         {
             InitializeComponent();
+            s = new ToolsBDClient();
+            _id = id;
             _trailer = trailer;
             _titre = titre;
             filmLabel.Content = "Trailer pour le film : "+ _titre;
@@ -41,7 +47,8 @@ namespace WPFApplication
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-
+            s.InsertTrailer(trailerTextBox.Text, _id);
+            this.Close();
         }
     }
 }

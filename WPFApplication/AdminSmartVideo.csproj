@@ -123,6 +123,7 @@
     <None Include="Connected Services\ServiceHostReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\FilmDTOLibrary.ActeurDTO.datasource" />
     <None Include="Properties\DataSources\FilmDTOLibrary.FilmDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -3,7 +3,9 @@ using FilmDTOLibrary;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Web.Services;
+using System.Web.Services.Description;
 
 namespace WCFLibrary
 {
@@ -37,6 +39,11 @@ namespace WCFLibrary
         public List<FilmDTO> GetFilmById(int id)
         {
             return filmBLL.GetFilmById(id);
+        }
+
+        public Boolean InsertTrailer(string trailer, int id)
+        {
+            return filmBLL.InsertTrailer(trailer, id);
         }
     }
 }
