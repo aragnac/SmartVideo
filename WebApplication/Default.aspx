@@ -8,10 +8,11 @@
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
-        <%if (!this.Load && this.listActors.Count == 0)
+                <%if (!this.Load && this.listFilms.Count == 0)
           {%>
-            <div class="info">Aucun acteurs trouvés.</div>
-        <%} %>
+            <div class="info">Aucune correspondances trouvées.</div>
+        <%} %>   
+
     
     <div class="ticket" >
         <h4 class ="mainTitle">Rechercher un Film :</h4>

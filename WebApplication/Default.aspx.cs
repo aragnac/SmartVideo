@@ -96,20 +96,22 @@ namespace WebApplication
 
         protected void searchButton_Click(object sender, EventArgs e)
         {
-            load = false;
+            
             if (acteurCB.Checked && !filmCB.Checked)
             {
                 listActors = s.SearchActors("", searchTB.Text);
                 listFilms = s.GetFilms("Film", (int)Session["offset"]);
                 ListBox1.DataSource = listActors;
                 ListBox1.DataBind();
+                load = false;
             }
             else
             {
                 if (acteurCB.Checked && filmCB.Checked)
                 {
-                    listActors = s.SearchActors("", searchTB.Text);
                     load = true;
+                    listActors = s.SearchActors("", searchTB.Text);
+
                     foreach (ActeurDTO acteur in listActors)
                     {
                         if (acteur.Name.Equals(searchTB.Text))
@@ -122,6 +124,7 @@ namespace WebApplication
                 }
                 else
                 {
+                    load = true;
                     listFilms = s.SearchMovies("Film", searchTB.Text);
                     if (listFilms.Count == 1)
                         DBstat.InsertOrUpdateHit(new HitDTO((int)listFilms[0].Id, "Film", DateTime.Now, 1));
